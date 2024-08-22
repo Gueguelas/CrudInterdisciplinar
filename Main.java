@@ -3,9 +3,9 @@ public class Main {
         Conexao conexao = new Conexao();
         //Teste de conexão
         if(conexao.conectar()){
-            System.out.println("funfo");
+            System.out.println("FUNFO DIMAISI");
         }else{
-            System.out.println("Nao funfo");
+            System.out.println("num funfo :(");
         }
     }
 }
