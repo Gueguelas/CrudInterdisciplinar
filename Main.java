@@ -10,7 +10,7 @@ public class Main {
 //            System.out.println("num funfo :(");
 //        }
         Usuario usuario1 = new Usuario();
-        usuario1.inserirCliente("x","x", Date.valueOf("2004-12-29"),"x","x","x","x","xx");
+        usuario1.inserirUsuario("x","x", Date.valueOf("2004-12-29"),"x","x","x","x","xx");
     }
 
 }

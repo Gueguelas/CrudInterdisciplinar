@@ -8,7 +8,7 @@ public class Usuario {
     Conexao conexao = new Conexao();
 
     //O id de usuario é SERIAL, ou seja, não precisa ser inserido
-    public boolean inserirCliente(String email,String telefone, Date data_nascimento,String nome,String sobrenome,String senha,String cnpj, String cpf){
+    public boolean inserirUsuario(String email,String telefone, Date data_nascimento,String nome,String sobrenome,String senha,String cnpj, String cpf){
         conexao.conectar();
         try {
             pstmt = conexao.conn.prepareStatement("INSERT INTO USUARIO (CEMAIL,CTELEFONE,DDATANASCIMENTO,CNOME,CSOBRENOME,CSENHA,CCNPJ,CCPF) VALUES (?,?,?,?,?,?,?,?)");
@@ -20,8 +20,7 @@ public class Usuario {
             pstmt.setString(6, senha);
             pstmt.setString(7, cnpj);
             pstmt.setString(8, cpf);
-            pstmt.executeUpdate();
-            return true;
+            return pstmt.executeUpdate()>0;
         }catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
