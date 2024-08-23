@@ -1,14 +1,9 @@
 
 import java.sql.Connection; //Mantêm a conexão aberta e fecha
 import java.sql.DriverManager; //Cria uma conexão
-import java.sql.PreparedStatement; //Gerencia e executa os comandos
-import java.sql.ResultSet; // Guarda os resultados da consulta ao banco
 import java.sql.SQLException; //Exceções
-import java.sql.Date; // Classe de datas sql
 public class Conexao {
-    private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+    Connection conn;
 
     //Metodo de conexão com bando de dados
     public boolean conectar() {
@@ -21,11 +16,12 @@ public class Conexao {
         //Tratamento de excessão
         catch (ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
+            return false;
         }
         catch (SQLException sqle) {
             sqle.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     //Desconectar
