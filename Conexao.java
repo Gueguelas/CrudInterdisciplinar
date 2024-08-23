@@ -28,7 +28,7 @@ public class Conexao {
         return false;
     }
 
-    //Desconectar
+    //Metodo para desconectar do DB
     public void desconectar() {
         try {
             if (conn != null && !conn.isClosed()) {
