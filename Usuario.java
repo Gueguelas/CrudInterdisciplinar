@@ -19,7 +19,7 @@ public class Usuario {
             pstmt.setString(5, sobrenome);
             pstmt.setString(6, senha);
             pstmt.setString(7, cnpj);
-            pstmt.setString(8,cpf);
+            pstmt.setString(8, cpf);
             pstmt.executeUpdate();
             return true;
         }catch (SQLException sqle){
