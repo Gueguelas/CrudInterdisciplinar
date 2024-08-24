@@ -7,5 +7,8 @@ public class Main {
         }else{
             System.out.println("num funfo :(");
         }
+        Produto produto = new Produto();
+//        produto.inserirProduto("Betonera 10/100", 149.99, "Obra", "Usado", "Betonera foda", 1);
+          produto.alterarNome("Betonera TOpzera", 1);
     }
 }
