@@ -202,4 +202,100 @@ public class Produto {
         }
     }
 
+//    BUSCAR
+
+//    Buscar por nome
+    public ResultSet buscarPorNome(String cNome){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE CNOME = ?");
+            pstmt.setString(1, cNome);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+
+    }
+
+//    Buscar por preco
+    public ResultSet buscarPorPreco(double fpreco){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE FPRECO = ?");
+            pstmt.setDouble(1, fpreco);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+    }
+    public ResultSet buscarPorCategoria(String cCategoria){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE CCATEGORIA = ?");
+            pstmt.setString(1, cCategoria);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+
+    }
+
+//    Buscar por Estado
+    public ResultSet buscarPorEstado(String cEstado){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE CESTADO = ?");
+            pstmt.setString(1, cEstado);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+    }
+
+    public ResultSet buscarPorDescricao(String cDescricao){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE CDESCRICAO = ?");
+            pstmt.setString(1, cDescricao);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+    }
+
+//    Buscar por idUsuario
+    public ResultSet buscarPoridUsuario(int idUsuario){
+        conexao.conectar();
+        try {
+            pstmt = conexao.conn.prepareStatement("SELECT * FROM PRODUTO WHERE idUsuario = ?");
+            pstmt.setInt(1, idUsuario);
+            ResultSet rset = pstmt.executeQuery();
+            return rset;
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }finally {
+            conexao.desconectar();
+        }
+    }
 }
