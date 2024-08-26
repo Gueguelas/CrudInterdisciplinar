@@ -11,7 +11,7 @@ public class Usuario {
     public boolean inserirUsuario(String email,String telefone, Date data_nascimento,String nome,String sobrenome,String senha,String cnpj, String cpf){
         conexao.conectar();
         try {
-            pstmt = conexao.conn.prepareStatement("INSERT INTO USUARIO (CEMAIL,CTELEFONE,DDATANASCIMENTO,CNOME,CSOBRENOME,CSENHA,CCNPJ,CCPF) VALUES (?,?,?,?,?,?,?,?)");
+            pstmt = conexao.getConn().prepareStatement("INSERT INTO USUARIO (CEMAIL,CTELEFONE,DDATANASCIMENTO,CNOME,CSOBRENOME,CSENHA,CCNPJ,CCPF) VALUES (?,?,?,?,?,?,?,?)");
             pstmt.setString(1, email);
             pstmt.setString(2, telefone);
             pstmt.setDate(3, data_nascimento);

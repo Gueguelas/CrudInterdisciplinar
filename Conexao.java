@@ -3,7 +3,11 @@ import java.sql.Connection; //Mantêm a conexão aberta e fecha
 import java.sql.DriverManager; //Cria uma conexão
 import java.sql.SQLException; //Exceções
 public class Conexao {
-    Connection conn;
+    private Connection conn;
+
+    public Connection getConn() {
+        return conn;
+    }
 
     //Metodo de conexão com bando de dados
     public boolean conectar() {
