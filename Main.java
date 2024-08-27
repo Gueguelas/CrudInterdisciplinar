@@ -11,8 +11,12 @@ public class Main {
             System.out.println("num funfo :(");
         }
         Produto produto = new Produto();
+
 //        produto.inserirProduto("Betonera 10/100", 149.99, "Obra", "Usado", "Betonera foda", 1);
 //          produto.alterarNome("Betonera TOpzera", 1);
+
+//        REMOVER POR ID
+//        produto.removerPorId(1);
 
 //        BUSCAR POR NOME
 //        ResultSet rsCategoria = produto.buscarPorNome("Betonera TOpzera");
@@ -139,6 +143,81 @@ public class Main {
 //        } catch (SQLException sqle) {
 //            sqle.printStackTrace();
 //        }
+
+
+
+        Midia midia = new Midia();
+////        midia.inserirMidia(1, "http://scjnwofjnnafmwifn.com", "http://dawndofbozodomatheusahfbinwj.com");
+//        ResultSet select = midia.buscar();
+//        try {
+//            if ( select != null){
+//                while (select.next()) {
+//                    String lista = ("IdProduto: "
+//                            + select.getInt("IdProduto")
+//                            + "\ncUrlVideo: " + select.getString("cUrlVideo")
+//                            + "\ncUrlFoto: " + select.getString("cUrlFoto"));
+//                    System.out.println(lista);
+//                }
+//            }else{
+//                System.out.println("Nome não existe");
+//            }
+//        } catch (SQLException sqle) {
+//            sqle.printStackTrace();
+//        }
+
+//      Buscar por IdProduto
+//        ResultSet rsIdProduto = midia.buscarPorIdProduto(1);
+//        try {
+//            if ( rsIdProduto != null){
+//                while (rsIdProduto.next()) {
+//                    String lista = ("IdProduto: "
+//                            + rsIdProduto.getInt("IdProduto")
+//                            + "\ncUrlVideo: " + rsIdProduto.getString("cUrlVideo")
+//                            + "\ncUrlFoto: " + rsIdProduto.getString("cUrlFoto"));
+//                    System.out.println(lista);
+//                }
+//            }else{
+//                System.out.println("Nome não existe");
+//            }
+//        } catch (SQLException sqle) {
+//            sqle.printStackTrace();
+//        }
+
+//        Buscar por UrlVideo
+//        ResultSet rsUrlVideo = midia.buscarPorUrlVideo("http://scjnwofjnnafmwifn.com");
+//        try {
+//            if ( rsUrlVideo != null){
+//                while (rsUrlVideo.next()) {
+//                    String lista = ("IdProduto: "
+//                            + rsUrlVideo.getInt("IdProduto")
+//                            + "\ncUrlVideo: " + rsUrlVideo.getString("cUrlVideo")
+//                            + "\ncUrlFoto: " + rsUrlVideo.getString("cUrlFoto"));
+//                    System.out.println(lista);
+//                }
+//            }else{
+//                System.out.println("Nome não existe");
+//            }
+//        } catch (SQLException sqle) {
+//            sqle.printStackTrace();
+//        }
+
+//        Buscar Por Url Foto
+        ResultSet rsUrlFoto = midia.buscarPorUrlFoto("http://dawndofbozodomatheusahfbinwj.com");
+        try {
+            if ( rsUrlFoto != null){
+                while (rsUrlFoto.next()) {
+                    String lista = ("IdProduto: "
+                            + rsUrlFoto.getInt("IdProduto")
+                            + "\ncUrlVideo: " + rsUrlFoto.getString("cUrlVideo")
+                            + "\ncUrlFoto: " + rsUrlFoto.getString("cUrlFoto"));
+                    System.out.println(lista);
+                }
+            }else{
+                System.out.println("Nome não existe");
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
 
     }
 }
