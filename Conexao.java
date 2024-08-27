@@ -1,10 +1,7 @@
 
 import java.sql.Connection; //Mantêm a conexão aberta e fecha
 import java.sql.DriverManager; //Cria uma conexão
-import java.sql.PreparedStatement; //Gerencia e executa os comandos
-import java.sql.ResultSet; // Guarda os resultados da consulta ao banco
 import java.sql.SQLException; //Exceções
-import java.sql.Date; // Classe de datas sql
 public class Conexao {
     private Connection conn;
 
