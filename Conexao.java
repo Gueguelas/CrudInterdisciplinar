@@ -6,9 +6,11 @@ import java.sql.ResultSet; // Guarda os resultados da consulta ao banco
 import java.sql.SQLException; //Exceções
 import java.sql.Date; // Classe de datas sql
 public class Conexao {
-    Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+    private Connection conn;
+
+    public Connection getConn() {
+        return conn;
+    }
 
     //Metodo de conexão com bando de dados
     public boolean conectar() {
