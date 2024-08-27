@@ -11,12 +11,12 @@ public class Pedido {
     Conexao conexao = new Conexao();
 
 
-    //Método para instanciar um produto no banco
-    public boolean inserirProduto(Date dData, int iQuantidade, double fValorTotal, String cStatus, int idUsuario){
+    //Método para instanciar um pedido no banco
+    public boolean inserirPedido(Date dData, int iQuantidade, double fValorTotal, String cStatus, int idUsuario){
         try {
             conexao.conectar(); //conectando o bd
             //Comando SQL
-            pstmt = conexao.getConn().prepareStatement("INSERT INTO PRODUTO (dData, iQuantidade, fValorTotal, cStatus, idUsuario) VALUES(?, ?, ?, ?, ?)");
+            pstmt = conexao.getConn().prepareStatement("INSERT INTO PEDIDO (dData, iQuantidade, fValorTotal, cStatus, idUsuario) VALUES(?, ?, ?, ?, ?)");
             //Argumentos
             pstmt.setDate(1, dData);
             pstmt.setInt(2, iQuantidade);
@@ -38,13 +38,13 @@ public class Pedido {
     }
 
 
-    //Métodos para modificar uma coluna da tabela Produto
+    //Métodos para modificar uma coluna da tabela Pedido
     public int alterarQuantidade(int iQuantidade, int id){
         try {
             conexao.conectar(); //conectando o bd
 
             //Comando SQL
-            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET iQuantidade = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE PEDIDO SET iQuantidade = ? WHERE sId = ?");
             //Argumentos
             pstmt.setInt(1, iQuantidade);
             pstmt.setInt(2, id);
@@ -67,7 +67,7 @@ public class Pedido {
             conexao.conectar(); //conectando o bd
 
             //Comando SQL
-            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cStatus = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE PEDIDO SET cStatus = ? WHERE sId = ?");
             //Argumentos
             pstmt.setString(1, cStatus);
             pstmt.setInt(2, id);
@@ -90,7 +90,7 @@ public class Pedido {
             conexao.conectar(); //conectando o bd
 
             //Comando SQL
-            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET fValorTotal = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE PEDIDO SET fValorTotal = ? WHERE sId = ?");
             //Argumentos
             pstmt.setDouble(1, fValorTotal);
             pstmt.setInt(2, id);
