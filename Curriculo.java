@@ -9,13 +9,16 @@ public class Curriculo {
     private PreparedStatement pstmt;
 //  Instanciando a classe conexao
     Conexao conexao = new Conexao();
-// Metodo para instanciar um curriculo no banco
+
+
+
+    // Metodo para instanciar um curriculo no banco
     public boolean inserirCurriculo(String infosGerais, Date dataCriacao, String projetos, String habilidades, Date dataAtualizacao, String linkLinkedin, String telefone, int idUsuario) {
         try{
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("INSERT INTO CURRICULO (cInfosGerais, dDataCriacao, cProjetos, cHabilidades, dDataAtualizacao, cLinkLinkedin, cTelefone, idUsuario) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            pstmt = conexao.getConn().prepareStatement("INSERT INTO CURRICULO (cInfosGerais, dDataCriacao, cProjetos, cHabilidades, dDataAtualizacao, cLinkLinkedin, cTelefone, idUsuario) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 //          Argumentos
             pstmt.setString(1, infosGerais);
             pstmt.setDate(2, dataCriacao);
@@ -46,7 +49,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET cInfosGerais = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cInfosGerais = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setString(1, infosGerais);
             pstmt.setInt(2, id);
@@ -70,7 +73,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET cProjetos = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cProjetos = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setString(1, projetos);
             pstmt.setInt(2, id);
@@ -94,7 +97,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET cHabilidades = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cHabilidades = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setString(1, habilidades);
             pstmt.setInt(2, id);
@@ -118,7 +121,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET dDataAtualizacao = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET dDataAtualizacao = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setDate(1, dataAtualizacao);
             pstmt.setInt(2, id);
@@ -142,7 +145,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET cLinkLinkedin = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cLinkLinkedin = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setString(1, linkLikedin);
             pstmt.setInt(2, id);
@@ -166,7 +169,7 @@ public class Curriculo {
 //          Conectando com o db
             conexao.conectar();
 //          Comando SQL
-            pstmt = conexao.conn.prepareStatement("UPDATE tabela SET cTelefone = ? WHERE sId = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tabela SET cTelefone = ? WHERE sId = ?");
 //          Argumentos
             pstmt.setString(1, telefone);
             pstmt.setInt(2, id);
@@ -191,7 +194,7 @@ public class Curriculo {
             conexao.conectar();
 //          Comando SQL
             String remover = "DELETE FROM CURRICULO WHERE sId = ?";
-            pstmt = conexao.conn.prepareStatement(remover);
+            pstmt = conexao.getConn().prepareStatement(remover);
 //          Argumentos
             pstmt.setInt(1, id);
             if (pstmt.executeUpdate() > 0){
@@ -213,7 +216,7 @@ public class Curriculo {
         try{
             conexao.conectar(); //Abrindo a conexão com o banco
             // Instanciando o objeto preparedStatement (pstmt)
-            pstmt = conexao.conn.prepareStatement("SELECT * FROM CURRICULO ORDER BY sId");
+            pstmt = conexao.getConn().prepareStatement("SELECT * FROM CURRICULO ORDER BY sId");
             // Executando o comando sql do objeto preparedStatement e armazenando no ResultSet
             ResultSet rset = pstmt.executeQuery();
             return rset;
