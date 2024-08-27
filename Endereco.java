@@ -5,13 +5,16 @@ import java.sql.SQLException;
 import java.time.Period;
 
 public class Endereco {
-    Conexao conexao = new Conexao();
+    Conexao conexao = new Conexao(); //criando a conexão
     private PreparedStatement pstm;
-    //Inserir todas as informações de endereço;
+
+    //Método para instanciar novo endereço no bd
     public boolean inserirNovoEndereco(String cep, String bairro, String pais, int numero, String estado, String rua, int idUsusario){
-        conexao.conectar();
         try{
+            conexao.conectar(); //conectando com o bd
+            //Comando SQL
             pstm = conexao.getConn().prepareStatement("INSERT INTO Endereco(cCep, cBairro, cPais, iNumero, cEstado, cRua, idUsuario) VALUES(?, ?, ?, ?, ?, ?, ?)");
+            //Argumentos
             pstm.setString(1, cep);
             pstm.setString(2, bairro);
             pstm.setString(3, pais);
@@ -29,14 +32,17 @@ public class Endereco {
             sqle.printStackTrace();
             return false;
         } finally {
-            conexao.desconectar();
+            conexao.desconectar(); //desconectando o bd
         }
     }
 
+    //Método para modificar uma coluna da tabela endereço
     public boolean alterarEnderecoCep(String cep, int id){
-        conexao.conectar();
         try{
+            conexao.conectar(); //conectando o bd
+            //Comando SQL
             pstm = conexao.getConn().prepareStatement("UPDATE ENDERECO SET cCep = ? WHERE sId = ?");
+            //Argumentos
             pstm.setString(1, cep);
             pstm.setInt(2, id);
             if (pstm.executeUpdate() <= 0){
@@ -48,13 +54,17 @@ public class Endereco {
         } catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
+        } finally {
+            conexao.desconectar(); //desconectando o bd
         }
     }
 
     public boolean alterarEnderecoNumero(int numero, int id){
-        conexao.conectar();
         try{
+            conexao.conectar(); //conectando o bd
+            //Comando SQL
             pstm = conexao.getConn().prepareStatement("UPDATE ENDERECO SET iNumero = ? WHERE sId = ?");
+            //Argumentos
             pstm.setInt(1, numero);
             pstm.setInt(2, id);
             if (pstm.executeUpdate() <= 0){
@@ -66,13 +76,17 @@ public class Endereco {
         } catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
+        } finally {
+            conexao.desconectar(); //desconectando o bd
         }
     }
 
     public boolean alterarEnderecoRua(String rua, int id){
-        conexao.conectar();
         try{
+            conexao.conectar(); //conectando o bd
+            //Comando SQL
             pstm = conexao.getConn().prepareStatement("UPDATE ENDERECO SET cRua = ? WHERE sId = ?");
+            //Argumentos
             pstm.setString(1, rua);
             pstm.setInt(2, id);
             if (pstm.executeUpdate() <= 0){
@@ -84,14 +98,18 @@ public class Endereco {
         } catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
+        } finally {
+            conexao.desconectar(); //desconectando o bd
         }
     }
 
     public int remover(int id){
         try{
-            conexao.conectar();
+            conexao.conectar(); //conectando o bd
+            //Comando SQL
             String remover = "DELETE FROM ENDERECO WHERE sId = ?";
             pstm = conexao.getConn().prepareStatement(remover);
+            //Argumento
             pstm.setInt(1, id);
             if (pstm.executeUpdate() > 0){
                 return 1;
@@ -103,21 +121,22 @@ public class Endereco {
             sqle.printStackTrace();
             return -1;
         }finally {
-            conexao.desconectar();
+            conexao.desconectar(); //desconectando o bd
         }
     }
 
     public ResultSet buscar(){
         try{
-            conexao.conectar();
+            conexao.conectar(); //conectando o bd
+            //Comando SQL
             pstm = conexao.getConn().prepareStatement("SELECT * FROM ENDERECO ORDER BY sId");
             ResultSet rset = pstm.executeQuery();
-            return rset;
+            return rset; //retornando a busca
         }catch (java.sql.SQLException sqle){
             sqle.printStackTrace();
             return null;
         }finally {
-            conexao.desconectar();
+            conexao.desconectar(); //desconectando o bd
         }
     }
 }
