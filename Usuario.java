@@ -1,4 +1,3 @@
-import javax.xml.crypto.Data;
 import java.sql.PreparedStatement; //Gerencia e executa os comandos
 import java.sql.ResultSet; // Guarda os resultados da consulta ao banco
 import java.sql.SQLException; //Exceções
