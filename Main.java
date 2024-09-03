@@ -1,5 +1,3 @@
-import java.sql.Date;
-
 public class Main {
     public static void main(String[] args) {
 //        Conexao conexao = new Conexao();
@@ -9,7 +7,7 @@ public class Main {
 //        }else{
 //            System.out.println("num funfo :(");
 //        }
-        Usuario usuario1 = new Usuario();
+        UsuarioDAO usuario1 = new UsuarioDAO();
         //Testando todos os metodos
 //        usuario1.inserirUsuario("x","x", Date.valueOf("2004-12-29"),"x","x","x",Date.valueOf("2024-01-01"),"xx", "x","x");
 //        usuario1.alterarEmail("KKKKKK",1);
@@ -18,7 +16,7 @@ public class Main {
 //        System.out.println(usuario1.alterarNome("GueguelasPG",1));
 //        System.out.println(usuario1.alterarSobrenome("FatDick",1));
 //        System.out.println(usuario1.alterarLinkedin("AI AI AI",1));
-        System.out.println(usuario1.alterarSenha("GGPG É O MELHOR",1));
+//        System.out.println(usuario1.alterarSenha("GGPG É O MELHOR",1));
     }
 
 }

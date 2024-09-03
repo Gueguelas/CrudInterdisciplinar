@@ -2,7 +2,7 @@ import java.sql.PreparedStatement; //Gerencia e executa os comandos
 import java.sql.ResultSet; // Guarda os resultados da consulta ao banco
 import java.sql.SQLException; //Exceções
 import java.sql.Date; // Classe de datas sql
-public class Usuario {
+public class UsuarioDAO {
     private PreparedStatement pstmt;
     private ResultSet rs;
     Conexao conexao = new Conexao();
