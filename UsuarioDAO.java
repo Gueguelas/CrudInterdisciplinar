@@ -8,7 +8,7 @@ public class UsuarioDAO {
     Conexao conexao = new Conexao();
 
     //O id de usuario é SERIAL, ou seja, não precisa ser inserido
-    public boolean inserirUsuario(String email,String telefone, Date dataNascimento,String nome,String sobrenome,String linklinkedin,Date dataCriacao,String senha,String cnpj, String cpf){
+    public boolean inserirUsuario(String email,String telefone, Date dataNascimento,String nome,String sobrenome,String linkLinkedin,Date dataCriacao,String senha,String cnpj, String cpf){
         conexao.conectar();
         try {
             pstmt = conexao.getConn().prepareStatement("INSERT INTO USUARIO (CEMAIL,CTELEFONE,DDATANASCIMENTO,CNOME,CSOBRENOME,CLINKLINKEDIN,DDATACRIACAO,CSENHA,CCNPJ,CCPF) VALUES (?,?,?,?,?,?,?,?,?,?)");
