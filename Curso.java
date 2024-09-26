@@ -2,23 +2,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Curso {
-    private boolean bstatus;
-    private String nome_curso;
-    private String categoria;
 
     Conexao conn = new Conexao();
     private PreparedStatement pstm;
 
-    public boolean inserir_Curso(int iNumeroInscricao, boolean bStatus, String cNome_curso, double fDuracao, double fValor, String cDescricao){
-        conn.conectar();
+    public boolean inserirCurso(String cCategoria, String cDescricao, String cNome, int iNumeroInscricao,double fValor, boolean bStatus, String cDuracao, int iIdCategoriaCurso){
+        conn.conectar( );
         try{
-            pstm = conn.getConn().prepareStatement("INSERT INTO Curso(iNumeroInscricao, bStatus, cNome_curso, fDuracao, fValor, cDescricao) VALUES(?, ?, ?, ?, ?, ?)");
-            pstm.setInt(1, iNumeroInscricao);
-            pstm.setBoolean(2, bStatus);
-            pstm.setString(3, cNome_curso);
-            pstm.setDouble(4, fDuracao);
+            pstm = conn.getConn().prepareStatement("INSERT INTO Curso(cCategoria, cDescricao, cNome, iNumeroInscricao, fValor, bStatus,  cDuracao, idCategoria, iIdCategoriaCurso) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            pstm.setString(1, cCategoria);
+            pstm.setString(2, cDescricao);
+            pstm.setString(3, cNome);
+            pstm.setInt(4, iNumeroInscricao);
             pstm.setDouble(5, fValor);
-            pstm.setString(6, cDescricao);
+            pstm.setBoolean(6, bStatus);
+            pstm.setString(7, cDuracao);
+            pstm.setInt(8, iIdCategoriaCurso);
             if (pstm.executeUpdate() <= 0){
                 return false;
             }
