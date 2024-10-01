@@ -5,6 +5,12 @@ import java.sql.SQLException; //Exceções
 public class Conexao {
     private Connection conn;
 
+    String nomeUsusario = System.getenv("NOME_USUARIO_DO_BANCO_DE_DADOS");
+    String senhaBanco = System.getenv("SENHA_DO_BANCO_DE_DADOS");
+    String maintanceBanco = System.getenv("MAINTANCE_DATABASE_BANCO_DE_DADOS");
+    String portaBanco = System.getenv("PORTA_DO_BANCO_DE_DADOS");
+    String hostBanco = System.getenv("HOST_BANCO_DE_DADOS");
+
     public Connection getConn() {
         return conn;
     }
@@ -13,8 +19,7 @@ public class Conexao {
     public boolean conectar() {
         try {
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:postgresql://dbbimo-dbbimo.b.aivencloud.com:27539/defaultdb", "avnadmin", "AVNS_D2wIoNxVHuwNinxXXOT");
+            conn = DriverManager.getConnection("jdbc:postgresql://" + hostBanco + ":" + portaBanco + "/" + maintanceBanco, nomeUsusario, senhaBanco);
             return true;
         }
         //Tratamento de excessão

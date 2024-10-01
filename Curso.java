@@ -3,6 +3,7 @@ import java.sql.SQLException;
 
 public class Curso {
 
+
     Conexao conn = new Conexao();
     private PreparedStatement pstm;
 
