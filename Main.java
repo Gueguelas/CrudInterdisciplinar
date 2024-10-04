@@ -3,9 +3,9 @@ public class Main {
         Conexao conexao = new Conexao();
         //Teste de conexão
         if(conexao.conectar()){
-            System.out.println("FUNFO DIMAISI");
+            System.out.println("A conexão com o banco está funcionando!");
         }else{
-            System.out.println("num funfo :(");
+            System.out.println("Houe erro na conexão com o Banco de Dados...");
         }
     }
 }
