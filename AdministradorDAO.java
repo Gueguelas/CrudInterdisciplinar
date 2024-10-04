@@ -2,6 +2,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 // Classe responsável pela manipulação de administradores
 public class AdministradorDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL
@@ -13,6 +14,7 @@ public class AdministradorDAO {
 
     // Método para inserir um novo administrador
     public int inserirAdministrador(int sid, String cnome, String cemail, String csenha) {
+
         this.conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
@@ -34,6 +36,7 @@ public class AdministradorDAO {
     public int remover(int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
+
             // Prepara a instrução SQL para remoção
             this.pstmt = conexao.getConn().prepareStatement("DELETE FROM ADMINISTRADOR WHERE SID = ?");
             pstmt.setInt(1, sid); // Define o valor do parâmetro SID
