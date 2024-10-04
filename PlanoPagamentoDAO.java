@@ -1,16 +1,16 @@
 import java.sql.PreparedStatement; // Importa a classe para executar instruções SQL preparadas
 import java.sql.ResultSet; // Importa a classe para manipular resultados de consultas SQL
 import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL
-import java.sql.Time; // Importa a classe para manipulação de dados do tipo hora
+
 
 // Classe responsável pela manipulação de planos de pagamento
-public class PlanoPagamento {
+public class PlanoPagamentoDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL preparados
     private ResultSet rs; // Objeto para armazenar o resultado de consultas SQL
     Conexao conexao = new Conexao(); // Instância da classe de conexão com o banco de dados
 
     // Construtor da classe
-    public PlanoPagamento() {
+    public PlanoPagamentoDAO() {
     }
 
     // Método para inserir um novo plano de pagamento

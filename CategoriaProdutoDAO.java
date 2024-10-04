@@ -3,13 +3,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // Classe responsável pela manipulação de categorias de produtos
-public class CategoriaProduto {
+public class CategoriaProdutoDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL
     private ResultSet rs; // Objeto para armazenar resultados de consultas
     private Conexao conexao = new Conexao(); // Instância da classe de conexão ao banco de dados
 
     // Construtor da classe
-    public CategoriaProduto() {}
+    public CategoriaProdutoDAO() {}
 
     // Método para inserir uma nova categoria de produto
     public int inserirCategoriaProduto(int sid, String cnome) {

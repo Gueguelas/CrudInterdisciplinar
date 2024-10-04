@@ -3,13 +3,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // Classe responsável pela manipulação de administradores
-public class Administrador {
+public class AdministradorDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL
     private ResultSet rs; // Objeto para armazenar resultados de consultas
     private Conexao conexao = new Conexao(); // Instância da classe de conexão ao banco de dados
 
     // Construtor da classe
-    public Administrador() {}
+    public AdministradorDAO() {}
 
     // Método para inserir um novo administrador
     public int inserirAdministrador(int sid, String cnome, String cemail, String csenha) {
