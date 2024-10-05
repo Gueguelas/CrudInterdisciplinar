@@ -1,3 +1,5 @@
+package Metodo;
+
 public class CategoriaProduto {
     private String cNome;
     private boolean bis_inactive;

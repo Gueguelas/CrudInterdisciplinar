@@ -1,6 +1,10 @@
+package Dao;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import Dao.CategoriaProdutoDAO;
+import
 
 // Classe responsável pela manipulação de categorias de produtos
 public class CategoriaProdutoDAO {

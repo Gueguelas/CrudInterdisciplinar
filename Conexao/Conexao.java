@@ -1,3 +1,5 @@
+package Conexao;
+
 import java.sql.Connection; // Importa a classe para gerenciar conexões com o banco de dados
 import java.sql.DriverManager; // Importa a classe para criar uma conexão com o banco de dados
 import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL
