@@ -1,4 +1,4 @@
-package Metodos;
+package Classes;
 
 public class Administrador {
     private String cNome;

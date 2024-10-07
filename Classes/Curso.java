@@ -1,4 +1,4 @@
-package Metodos;
+package Classes;
 
 public class Curso {
     private String cCategoria;

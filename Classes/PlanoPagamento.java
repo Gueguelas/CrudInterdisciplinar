@@ -1,16 +1,28 @@
-package Metodos;
+package Classes;
 
-public class CategoriaProduto {
+public class PlanoPagamento {
+    private String cDescricao;
     private String cNome;
+    private double fValor;
     private boolean bis_inactive;
     private boolean bis_updated;
     private boolean btransaction_made;
 
-    public CategoriaProduto(String cNome, boolean bis_inactive, boolean bis_updated, boolean btransaction_made) {
+    public PlanoPagamento(String cDescricao, String cNome, double fValor, boolean bis_inactive, boolean bis_updated, boolean btransaction_made) {
+        this.cDescricao = cDescricao;
         this.cNome = cNome;
+        this.fValor = fValor;
         this.bis_inactive = bis_inactive;
         this.bis_updated = bis_updated;
         this.btransaction_made = btransaction_made;
+    }
+
+    public String getcDescricao() {
+        return cDescricao;
+    }
+
+    public void setcDescricao(String cDescricao) {
+        this.cDescricao = cDescricao;
     }
 
     public String getcNome() {
@@ -19,6 +31,14 @@ public class CategoriaProduto {
 
     public void setcNome(String cNome) {
         this.cNome = cNome;
+    }
+
+    public double getfValor() {
+        return fValor;
+    }
+
+    public void setfValor(double fValor) {
+        this.fValor = fValor;
     }
 
     public boolean isBis_inactive() {
@@ -47,11 +67,14 @@ public class CategoriaProduto {
 
     @Override
     public String toString() {
-        return "CategoriaProduto{" +
+        return "PlanoPagamento{" +
+                "Descricao='" + cDescricao + '\'' +
                 "Nome='" + cNome + '\'' +
+                "Valor=" + fValor +
                 "Is_inactive=" + bis_inactive +
                 "Is_updated=" + bis_updated +
                 "Transaction_made=" + btransaction_made +
                 '}';
     }
 }
+
