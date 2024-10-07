@@ -1,7 +1,7 @@
 package Classes;
 
 public class Curso {
-    private String cCategoria;
+    private String idCategoriaCurso;
     private String cNome;
     private double fValor;
     private boolean bis_inactive;
@@ -12,8 +12,8 @@ public class Curso {
     private String cDuracao;
     private boolean btransaction_made;
 
-    public Curso(String cCategoria, String cNome, double fValor, boolean bis_inactive, boolean bis_updated, String cDescricao, boolean bStatus, int iNumeroInscricao, String cDuracao, boolean btransaction_made) {
-        this.cCategoria = cCategoria;
+    public Curso(String idCategoriaCurso, String cNome, double fValor, boolean bis_inactive, boolean bis_updated, String cDescricao, boolean bStatus, int iNumeroInscricao, String cDuracao, boolean btransaction_made) {
+        this.idCategoriaCurso = idCategoriaCurso;
         this.cNome = cNome;
         this.fValor = fValor;
         this.bis_inactive = bis_inactive;
@@ -25,12 +25,12 @@ public class Curso {
         this.btransaction_made = btransaction_made;
     }
 
-    public String getcCategoria() {
-        return cCategoria;
+    public String getIdCategoriaCurso() {
+        return idCategoriaCurso;
     }
 
-    public void setcCategoria(String cCategoria) {
-        this.cCategoria = cCategoria;
+    public void setIdCategoriaCurso(String cCategoria) {
+        this.idCategoriaCurso = cCategoria;
     }
 
     public String getcNome() {
@@ -108,7 +108,7 @@ public class Curso {
     @Override
     public String toString() {
         return "Curso{" +
-                "Categoria='" + cCategoria + '\'' +
+                "Categoria='" + idCategoriaCurso + '\'' +
                 "Nome='" + cNome + '\'' +
                 "Valor=" + fValor +
                 "Is_inactive=" + bis_inactive +

@@ -5,6 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexao.Conexao;
 
+import java.util.InputMismatchException;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 
 // Classe responsável pela manipulação de administradores
 public class AdministradorDAO {
@@ -49,6 +53,44 @@ public class AdministradorDAO {
             return -1; // Retorna -1 em caso de erro
         } finally {
             conexao.desconectar(); // Fecha a conexão
+        }
+    }
+
+    //Metodo com regex para verificar senha;
+    public static boolean verificarSenha(String senha){
+        String regexSenha = "^(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$";
+        try{
+            // Cria um objeto Pattern compilando o padrão
+            Pattern pattern = Pattern.compile(regexSenha);
+            // Cria um objeto Matcher chamando o mÃ©todo matcher no objeto Pattern, passando a string de email de entrada
+            Matcher verificacao = pattern.matcher(senha);
+            if(verificacao.matches()){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(InputMismatchException ime){
+            ime.printStackTrace();
+            return false;
+        }
+    }
+
+    //Metodo com regex para verificar email;
+    public static boolean verificarEmail(String email){
+        String regexEmail = "^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        try{
+            // Cria um objeto Pattern compilando o padrão
+            Pattern pattern = Pattern.compile(regexEmail);
+            // Cria um objeto Matcher chamando o mÃ©todo matcher no objeto Pattern, passando a string de email de entrada
+            Matcher verificacao = pattern.matcher(email);
+            if(verificacao.matches()){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(InputMismatchException ime){
+            ime.printStackTrace();
+            return false;
         }
     }
 

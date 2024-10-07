@@ -27,20 +27,10 @@ public class Administrador {
         this.cEmail = cEmail;
     }
 
-    public String getcSenha() {
-        return cSenha;
-    }
-
-    public void setcSenha(String cSenha) {
-        this.cSenha = cSenha;
-    }
-
     @Override
     public String toString() {
         return "Administrador{" +
-                "Nome='" + cNome + '\'' +
-                "Email='" + cEmail + '\'' +
-                "Senha='" + cSenha + '\'' +
-                '}';
+                "Nome='" + this.cNome + '\'' +
+                "Email='" + this.cEmail + '}';
     }
 }
