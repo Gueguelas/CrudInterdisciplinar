@@ -1,3 +1,5 @@
+package Metodos;
+
 public class PlanoPagamento {
     private String cDescricao;
     private String cNome;

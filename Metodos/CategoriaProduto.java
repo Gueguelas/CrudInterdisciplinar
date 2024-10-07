@@ -1,4 +1,4 @@
-package Metodo;
+package Metodos;
 
 public class CategoriaProduto {
     private String cNome;

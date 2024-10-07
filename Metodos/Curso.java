@@ -1,3 +1,5 @@
+package Metodos;
+
 public class Curso {
     private String cCategoria;
     private String cNome;

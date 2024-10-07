@@ -1,6 +1,9 @@
+package Dao;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import Conexao.Conexao;
 
 
 // Classe responsável pela manipulação de administradores

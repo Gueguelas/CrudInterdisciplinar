@@ -1,5 +1,8 @@
+package Dao;
+
 import java.sql.PreparedStatement; // Importa a classe para executar instruções SQL preparadas
-import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL
+import java.sql.SQLException;// Importa a classe para tratar exceções relacionadas ao SQL
+import Conexao.Conexao;
 
 // Classe responsável pela manipulação de cursos
 public class CursoDAO {

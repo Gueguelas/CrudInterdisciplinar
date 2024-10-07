@@ -1,3 +1,5 @@
+package Metodos;
+
 public class Administrador {
     private String cNome;
     private String cEmail;
