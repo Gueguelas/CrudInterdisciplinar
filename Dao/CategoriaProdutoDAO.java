@@ -15,12 +15,11 @@ public class CategoriaProdutoDAO {
     public CategoriaProdutoDAO() {}
 
     // Método para inserir uma nova categoria de produto
-    public int inserirCategoriaProduto(int sid, String cnome) {
+    public int inserirCategoriaProduto(String cnome) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
-            pstmt = conexao.getConn().prepareStatement("INSERT INTO CATEGORIAPRODUTO (SID, CNOME) VALUES(?, ?)");
-            pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            pstmt = conexao.getConn().prepareStatement("INSERT INTO CATEGORIAPRODUTO (CNOME) VALUES(?)");
             pstmt.setString(2, cnome); // Define o valor do parâmetro CNOME
             return pstmt.executeUpdate(); // Executa a inserção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
@@ -65,7 +64,7 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para buscar todas as categorias
-    public ResultSet buscar() {
+    public ResultSet buscarTodasCategoriaProduto() {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca
@@ -80,7 +79,7 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para buscar uma categoria pelo SID
-    public ResultSet buscarPorId(int sid) {
+    public ResultSet buscarCategoriaProdutoPorId(int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por ID
@@ -96,7 +95,7 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para buscar uma categoria pelo nome
-    public ResultSet buscarPorNome(String cnome) {
+    public ResultSet buscarCategoriaProdutoPorNome(String cnome) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por nome

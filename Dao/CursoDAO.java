@@ -105,7 +105,7 @@ public class CursoDAO {
     }
 
     // Método para alterar a descrição de um curso
-    public boolean alterarDescricao(String cDescricao, int sId) {
+    public boolean alterarDescricaoCurso(String cDescricao, int sId) {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização da descrição do curso
