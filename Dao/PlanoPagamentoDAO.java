@@ -16,13 +16,12 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para inserir um novo plano de pagamento
-    public int inserirPlanoPagamento(int sid, String cFormaPagamento, String cTipoPlano, String cDescricao, double fValor) {
+    public int inserirPlanoPagamento(String cFormaPagamento, String cTipoPlano, String cDescricao, double fValor) {
         this.conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para inserção
-            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO PLANO_PAGAMENTO (sId, cFormaPagamento, cTipoPlano, cDescricao, fValor) VALUES(?,?,?,?,?)");
+            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO PLANO_PAGAMENTO (cFormaPagamento, cTipoPlano, cDescricao, fValor) VALUES(?,?,?,?,?)");
             // Define os valores dos parâmetros
-            this.pstmt.setInt(1, sid);
             this.pstmt.setString(2, cFormaPagamento);
             this.pstmt.setString(3, cTipoPlano);
             this.pstmt.setString(4, cDescricao);
@@ -57,7 +56,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para alterar o tipo de plano por ID
-    public int TipoPlano(String cTipoPlano, int sid) {
+    public int alterarTipoPlano(String cTipoPlano, int sid) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização do tipo de plano
@@ -76,7 +75,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para alterar a descrição por ID
-    public int Descricao(String cDescricao, int sid) {
+    public int alterarDescricao(String cDescricao, int sid) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização da descrição
@@ -95,7 +94,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para alterar o valor por ID
-    public int Valor(double fValor, int sid) {
+    public int alterarValor(double fValor, int sid) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização do valor
@@ -114,7 +113,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para remover um plano de pagamento por ID
-    public int remover(int sid) {
+    public int removerPlanoPagamento(int sid) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para remoção
@@ -132,7 +131,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para buscar todos os planos de pagamento
-    public ResultSet buscar() {
+    public ResultSet buscarTodosPlanoPagamento() {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para seleção de todos os planos
@@ -149,7 +148,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para buscar um plano de pagamento por ID
-    public ResultSet buscarPorId(int sid) {
+    public ResultSet buscarPlanoPagamentoPorId(int sid) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para seleção de um plano por ID
@@ -167,7 +166,7 @@ public class PlanoPagamentoDAO {
     }
 
     // Método para buscar um plano de pagamento por valor
-    public ResultSet buscarPorValor(double valor) {
+    public ResultSet buscarPlanoPagamentoPorValor(double valor) {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para seleção de um plano por valor

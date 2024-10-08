@@ -20,13 +20,12 @@ public class AdministradorDAO {
     public AdministradorDAO() {}
 
     // Método para inserir um novo administrador
-    public int inserirAdministrador(int sid, String cnome, String cemail, String csenha) {
+    public int inserirAdministrador(String cnome, String cemail, String csenha) {
 
         this.conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
-            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO ADMINISTRADOR (SID, CNOME, CEMAIL, CSENHA) VALUES(?,?,?,?)");
-            this.pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO ADMINISTRADOR (CNOME, CEMAIL, CSENHA) VALUES(?,?,?,?)");
             this.pstmt.setString(2, cnome); // Define o valor do parâmetro CNOME
             this.pstmt.setString(3, cemail); // Define o valor do parâmetro CEMAIL
             this.pstmt.setString(4, csenha); // Define o valor do parâmetro CSENHA
@@ -40,7 +39,7 @@ public class AdministradorDAO {
     }
 
     // Método para remover um administrador pelo SID
-    public int remover(int sid) {
+    public int removerAdministrador(int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
 
@@ -81,7 +80,7 @@ public class AdministradorDAO {
         try{
             // Cria um objeto Pattern compilando o padrão
             Pattern pattern = Pattern.compile(regexEmail);
-            // Cria um objeto Matcher chamando o métodor[ matcher no objeto Pattern, passando a string de email de entrada
+            // Cria um objeto Matcher chamando o metodo matcher no objeto Pattern, passando a string de email de entrada
             Matcher verificacao = pattern.matcher(email);
             if(verificacao.matches()){
                 return true;
@@ -95,7 +94,7 @@ public class AdministradorDAO {
     }
 
     // Método para alterar o nome de um administrador
-    public int alterarNome(String cnome, int sid) {
+    public int alterarNomeAdministrador(String cnome, int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
@@ -112,7 +111,7 @@ public class AdministradorDAO {
     }
 
     // Método para alterar o email de um administrador
-    public int alterarEmail(String cemail, int sid) {
+    public int alterarEmailAdministrador(String cemail, int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
@@ -129,7 +128,7 @@ public class AdministradorDAO {
     }
 
     // Método para alterar a senha de um administrador
-    public int alterarSenha(String csenha, int sid) {
+    public int alterarSenhaAdministrador(String csenha, int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
@@ -146,7 +145,7 @@ public class AdministradorDAO {
     }
 
     // Método para buscar todos os administradores
-    public ResultSet buscar() {
+    public ResultSet buscarTodosAdministradores() {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca
@@ -162,7 +161,7 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo SID
-    public ResultSet buscarPorId(int sid) {
+    public ResultSet buscarAdministradorPorId(int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por ID
@@ -178,7 +177,7 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo nome
-    public ResultSet buscarPorNome(String cnome) {
+    public ResultSet buscarAdministradorPorNome(String cnome) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por nome
@@ -194,7 +193,7 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo email
-    public ResultSet buscarPorEmail(String cemail) {
+    public ResultSet buscarAdministradorPorEmail(String cemail) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por email
