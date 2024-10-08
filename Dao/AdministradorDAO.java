@@ -81,7 +81,7 @@ public class AdministradorDAO {
         try{
             // Cria um objeto Pattern compilando o padrão
             Pattern pattern = Pattern.compile(regexEmail);
-            // Cria um objeto Matcher chamando o mÃ©todo matcher no objeto Pattern, passando a string de email de entrada
+            // Cria um objeto Matcher chamando o métodor[ matcher no objeto Pattern, passando a string de email de entrada
             Matcher verificacao = pattern.matcher(email);
             if(verificacao.matches()){
                 return true;

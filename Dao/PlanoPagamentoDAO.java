@@ -9,7 +9,6 @@ import Conexao.Conexao;
 // Classe responsável pela manipulação de planos de pagamento
 public class PlanoPagamentoDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL preparados
-    private ResultSet rs; // Objeto para armazenar o resultado de consultas SQL
     Conexao conexao = new Conexao(); // Instância da classe de conexão com o banco de dados
 
     // Construtor da classe
