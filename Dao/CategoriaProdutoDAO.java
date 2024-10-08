@@ -8,7 +8,6 @@ import Conexao.Conexao;
 // Classe responsável pela manipulação de categorias de produtos
 public class CategoriaProdutoDAO {
     private PreparedStatement pstmt; // Objeto para executar comandos SQL
-    private ResultSet rs; // Objeto para armazenar resultados de consultas
     private Conexao conexao = new Conexao(); // Instância da classe de conexão ao banco de dados
 
     // Construtor da classe

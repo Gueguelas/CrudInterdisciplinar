@@ -57,7 +57,7 @@ public class AdministradorDAO {
 
     //Metodo com regex para verificar senha;
     public static boolean verificarSenha(String senha){
-        String regexSenha = "^(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$";
+        String regexSenha = "^(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\n";
         try{
             // Cria um objeto Pattern compilando o padrão
             Pattern pattern = Pattern.compile(regexSenha);
@@ -76,7 +76,7 @@ public class AdministradorDAO {
 
     //Metodo com regex para verificar email;
     public static boolean verificarEmail(String email){
-        String regexEmail = "^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String regexEmail = "^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2}$";
         try{
             // Cria um objeto Pattern compilando o padrão
             Pattern pattern = Pattern.compile(regexEmail);
