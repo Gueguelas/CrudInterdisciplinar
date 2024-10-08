@@ -20,7 +20,7 @@ public class CategoriaProdutoDAO {
         try {
             // Prepara a instrução SQL para inserção
             pstmt = conexao.getConn().prepareStatement("INSERT INTO CATEGORIAPRODUTO (CNOME) VALUES(?)");
-            pstmt.setString(2, cnome); // Define o valor do parâmetro CNOME
+            pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
             return pstmt.executeUpdate(); // Executa a inserção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção

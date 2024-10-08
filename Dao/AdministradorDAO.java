@@ -25,10 +25,10 @@ public class AdministradorDAO {
         this.conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
-            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO ADMINISTRADOR (CNOME, CEMAIL, CSENHA) VALUES(?,?,?,?)");
-            this.pstmt.setString(2, cnome); // Define o valor do parâmetro CNOME
-            this.pstmt.setString(3, cemail); // Define o valor do parâmetro CEMAIL
-            this.pstmt.setString(4, csenha); // Define o valor do parâmetro CSENHA
+            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO ADMINISTRADOR (CNOME, CEMAIL, CSENHA) VALUES(?,?,?)");
+            this.pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
+            this.pstmt.setString(2, cemail); // Define o valor do parâmetro CEMAIL
+            this.pstmt.setString(3, csenha); // Define o valor do parâmetro CSENHA
             return pstmt.executeUpdate(); // Executa a inserção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção

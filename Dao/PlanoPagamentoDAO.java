@@ -21,12 +21,12 @@ public class PlanoPagamentoDAO {
         this.conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para inserção
-            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO PLANO_PAGAMENTO (cFormaPagamento, cTipoPlano, cDescricao, fValor) VALUES(?,?,?,?,?)");
+            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO PLANO_PAGAMENTO (cFormaPagamento, cTipoPlano, cDescricao, fValor) VALUES(?,?,?,?)");
             // Define os valores dos parâmetros
-            this.pstmt.setString(2, cFormaPagamento);
-            this.pstmt.setString(3, cTipoPlano);
-            this.pstmt.setString(4, cDescricao);
-            this.pstmt.setDouble(5, fValor);
+            this.pstmt.setString(1, cFormaPagamento);
+            this.pstmt.setString(2, cTipoPlano);
+            this.pstmt.setString(3, cDescricao);
+            this.pstmt.setDouble(4, fValor);
             // Executa a inserção e retorna o número de linhas afetadas
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
