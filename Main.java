@@ -7,7 +7,7 @@ public class Main {
         if(conexao.conectar()){
             System.out.println("A conexão com o banco está funcionando!");
         }else{
-            System.out.println("Houe erro na conexão com o Banco de Dados...");
+            System.out.println("Houve erro na conexão com o Banco de Dados...");
         }
     }
 }

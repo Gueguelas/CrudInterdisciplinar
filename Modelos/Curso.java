@@ -1,4 +1,4 @@
-package Classes;
+package Modelos;
 
 public class Curso {
     // Atributos do curso

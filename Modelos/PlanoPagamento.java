@@ -1,4 +1,4 @@
-package Classes;
+package Modelos;
 
 public class PlanoPagamento {
     // Atributos da classe, representando as propriedades do plano de pagamento
@@ -8,6 +8,8 @@ public class PlanoPagamento {
     private boolean bis_inactive; // Indica se o plano está inativo
     private boolean bis_updated;   // Indica se o plano foi atualizado
     private boolean btransaction_made; // Indica se uma transação foi realizada
+
+    public PlanoPagamento(){};
 
     // Construtor da classe que inicializa todos os atributos
     public PlanoPagamento(String cDescricao, String cNome, double fValor,

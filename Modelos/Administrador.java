@@ -1,4 +1,4 @@
-package Classes;
+package Modelos;
 
 public class Administrador {
     // Atributos do administrador
