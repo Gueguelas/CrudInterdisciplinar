@@ -30,7 +30,7 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para remover uma categoria pelo SID
-    public int remover(int sid) {
+    public int removerCategoriaProduto(int sid) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para remoção

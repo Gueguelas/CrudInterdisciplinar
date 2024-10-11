@@ -15,9 +15,8 @@ public class CategoriaCursoDAO {
     public int inserirCategoria(int sid, String cnome) {
         conexao.conectar();
         try {
-            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO CATEGORIACURSO (SID, CNOME) VALUES (?, ?)");
-            this.pstmt.setInt(1, sid);
-            this.pstmt.setString(2, cnome);
+            this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO CATEGORIACURSO(CNOME) VALUES (?)");
+            this.pstmt.setString(1, cnome);
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -28,10 +27,10 @@ public class CategoriaCursoDAO {
     }
 
     // Remover
-    public int remover(int sid) {
+    public int removerCategoriaCurso(int sid) {
         conexao.conectar();
         try {
-            this.pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIACURSO WHERE SID = ?");
+            this.pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIACURSO WHERE sId = ?");
             pstmt.setInt(1, sid);
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
@@ -46,7 +45,7 @@ public class CategoriaCursoDAO {
     public int alterarNome(String cnome, int sid) {
         conexao.conectar();
         try {
-            this.pstmt = this.conexao.getConn().prepareStatement("UPDATE CATEGORIACURSO SET CNOME = ? WHERE SID = ?");
+            this.pstmt = this.conexao.getConn().prepareStatement("UPDATE CATEGORIACURSO SET CNOME = ? WHERE sId = ?");
             pstmt.setString(1, cnome);
             pstmt.setInt(2, sid);
             return pstmt.executeUpdate();
@@ -74,7 +73,7 @@ public class CategoriaCursoDAO {
     public ResultSet buscarPorId(int sid) {
         conexao.conectar();
         try {
-            this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIACURSO WHERE SID = ?");
+            this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIACURSO WHERE sId = ?");
             pstmt.setInt(1, sid);
             return pstmt.executeQuery();
         } catch (SQLException sqle) {
