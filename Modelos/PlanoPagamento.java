@@ -2,6 +2,7 @@ package Modelos;
 
 public class PlanoPagamento {
     // Atributos da classe, representando as propriedades do plano de pagamento
+    private int sId;           // ID do plano
     private String cDescricao; // Descrição do plano
     private String cNome;      // Nome do plano
     private double fValor;     // Valor do plano
@@ -21,6 +22,29 @@ public class PlanoPagamento {
         this.bis_inactive = bis_inactive;
         this.bis_updated = bis_updated;
         this.btransaction_made = btransaction_made;
+    }
+
+    public PlanoPagamento(String cDescricao, String cNome, Double fValor) { // construtor para cadastro
+        this.cDescricao = cDescricao;
+        this.cNome = cNome;
+        this.fValor = fValor;
+    }
+
+    public PlanoPagamento(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
+
+    public PlanoPagamento(int sId, String cDescricao, String cNome, double fValor) { // construtor para alteração
+        this.sId = sId;
+        if (cDescricao != null && !cDescricao.isEmpty()) {
+            this.cDescricao = cDescricao;
+        }
+        if (cNome != null && !cNome.isEmpty()) {
+            this.cNome = cNome;
+        }
+        if (fValor >= 0) {
+            this.fValor = fValor;
+        }
     }
 
     // Getters e Setters para acessar e modificar os atributos

@@ -3,12 +3,17 @@ package Modelos;
 import java.util.Date;
 
 public class Produto {
+    private int sId;
     private double fValor;
     private String cDescricao;
     private Date dDataCriacao;
     private String cNome;
     private String cCategoria;
     private String cEstado;
+
+    public Produto(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
 
     public double getfValor() {
         return fValor;

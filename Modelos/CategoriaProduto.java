@@ -2,6 +2,7 @@ package Modelos;
 
 public class CategoriaProduto {
     // Atributos da categoria de produto
+    private int sId;                 // Id da categoria
     private String cNome;            // Nome da categoria
     private boolean bis_inactive;     // Indica se a categoria está inativa
     private boolean bis_updated;       // Indica se a categoria foi atualizada
@@ -13,6 +14,21 @@ public class CategoriaProduto {
         this.bis_inactive = bis_inactive;
         this.bis_updated = bis_updated;
         this.btransaction_made = btransaction_made;
+    }
+
+    public CategoriaProduto(String cNome) {
+        this.cNome = cNome;
+    } // construtor para cadastro
+
+    public CategoriaProduto(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
+
+    public CategoriaProduto(int sId, String cNome) { // construtor para alteração
+        this.sId = sId;
+        if (cNome != null && !cNome.isEmpty()) {
+            this.cNome = cNome;
+        }
     }
 
     // Getter para o nome da categoria

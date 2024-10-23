@@ -2,15 +2,33 @@ package Modelos;
 
 public class Administrador {
     // Atributos do administrador
+    private int sId;        // ID do administrador
     private String cNome;   // Nome do administrador
     private String cEmail;  // Email do administrador
     private String cSenha;  // Senha do administrador
 
     // Construtor para inicializar os atributos
-    public Administrador(String cNome, String cEmail, String cSenha) {
+    public Administrador(String cNome, String cEmail, String cSenha) { // construtor para cadastro
         this.cNome = cNome;
         this.cEmail = cEmail;
-        this.cSenha = cSenha; // Considerar criptografar a senha em uma aplicação real
+        this.cSenha = cSenha;
+    }
+
+    public Administrador(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
+
+    public Administrador(int sId, String cNome, String cEmail, String cSenha) { // construtor para alteração
+        this.sId = sId;
+        if (cNome != null && !cNome.isEmpty()) {
+            this.cNome = cNome;
+        }
+        if (cEmail != null && !cEmail.isEmpty()) {
+            this.cEmail = cEmail;
+        }
+        if (cSenha != null && !cSenha.isEmpty()) {
+            this.cSenha = cSenha;
+        }
     }
 
     // Getter para o nome

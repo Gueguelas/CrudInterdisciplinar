@@ -3,6 +3,7 @@ package Modelos;
 import java.util.Date;
 
 public class Usuario {
+    private int sId;
     private String cCnpj;
     private Date dDataCriacao;
     private Date dDataNascimento;
@@ -12,6 +13,10 @@ public class Usuario {
     private String cCpf;
     private String cNome;
     private String cEmail;
+
+    public Usuario(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
 
     public String getcCnpj() {
         return cCnpj;

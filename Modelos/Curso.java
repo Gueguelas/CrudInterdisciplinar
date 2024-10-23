@@ -2,6 +2,7 @@ package Modelos;
 
 public class Curso {
     // Atributos do curso
+    private int sId;                // ID do curso
     private String idCategoriaCurso; // ID da categoria do curso
     private String cNome;            // Nome do curso
     private double fValor;           // Valor do curso
@@ -29,6 +30,10 @@ public class Curso {
         this.cDuracao = cDuracao;
         this.btransaction_made = btransaction_made;
     }
+
+    public Curso(int sId) {
+        this.sId = sId;
+    } // construtor para remoção
 
     // Getters e Setters
 
