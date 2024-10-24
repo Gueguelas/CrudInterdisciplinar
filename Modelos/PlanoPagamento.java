@@ -97,6 +97,10 @@ public class PlanoPagamento {
         this.btransaction_made = btransaction_made;
     }
 
+    public int getsId() {
+        return sId;
+    }
+
     // Sobrescrita do método toString para fornecer uma representação legível do objeto
     public String toString() {
         return "PlanoPagamento{" +

@@ -15,16 +15,15 @@ public class CursoDAO {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para inserção
-            pstm = conn.getConn().prepareStatement("INSERT INTO Curso(cCategoria, cDescricao, cNome, iNumeroInscricao, fValor, bStatus, cDuracao, idCategoria, iIdCategoriaCurso) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            pstm = conn.getConn().prepareStatement("INSERT INTO Curso(idCategoria, cDescricao, cNome, iNumeroInscricao, fValor, bStatus, cDuracao,  iIdCategoriaCurso) VALUES(?, ?, ?, ?, ?, ?, ?)");
             // Define os valores dos parâmetros
-            pstm.setString(1, );
-            pstm.setString(2, curso.getcDescricao());
-            pstm.setString(3, curso.getcNome());
-            pstm.setInt(4, curso.getiNumeroInscricao());
-            pstm.setDouble(5, curso.getfValor());
-            pstm.setBoolean(6, bStatus);
-            pstm.setString(7, cDuracao);
-            pstm.setInt(8, iIdCategoriaCurso);
+            pstm.setInt(1, curso.getsId());
+            pstm.setString(2, curso.getcNome());
+            pstm.setInt(3, curso.getiNumeroInscricao());
+            pstm.setDouble(4, curso.getfValor());
+            pstm.setBoolean(5, curso.getbStatus());
+            pstm.setString(6, curso.getcDuracao());
+            pstm.setInt(7, curso.getIdCategoriaCurso());
             // Executa a inserção e verifica se houve sucesso
             if (pstm.executeUpdate() <= 0) {
                 return false; // Retorna false se a inserção falhar
@@ -40,13 +39,13 @@ public class CursoDAO {
     }
 
     // Método para alterar o status de um curso
-    public boolean alterarStatusCurso(boolean bstatus, int sId) {
+    public boolean alterarStatusCurso(Curso curso) {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização do status
             pstm = conn.getConn().prepareStatement("UPDATE Curso SET bStatus = ? WHERE sID = ?");
-            pstm.setBoolean(1, bstatus); // Define o novo status
-            pstm.setInt(2, sId); // Define o ID do curso a ser atualizado
+            pstm.setBoolean(1, curso.getbStatus()); // Define o novo status
+            pstm.setInt(2, curso.getsId()); // Define o ID do curso a ser atualizado
             // Executa a atualização e verifica se houve sucesso
             if (pstm.executeUpdate() <= 0) {
                 return false; // Retorna false se a atualização falhar
@@ -62,13 +61,13 @@ public class CursoDAO {
     }
 
     // Método para alterar o nome de um curso
-    public boolean alterarNomeCurso(String cNome_curso, int sId) {
+    public boolean alterarNomeCurso(Curso curso) {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização do nome do curso
             pstm = conn.getConn().prepareStatement("UPDATE Curso SET cNome_curso = ? WHERE sID = ?");
-            pstm.setString(1, cNome_curso); // Define o novo nome
-            pstm.setInt(2, sId); // Define o ID do curso a ser atualizado
+            pstm.setString(1, curso.getcNome()); // Define o novo nome
+            pstm.setInt(2, curso.getsId()); // Define o ID do curso a ser atualizado
             // Executa a atualização e verifica se houve sucesso
             if (pstm.executeUpdate() <= 0) {
                 return false; // Retorna false se a atualização falhar
@@ -84,13 +83,13 @@ public class CursoDAO {
     }
 
     // Método para alterar o valor de um curso
-    public boolean alterarValorCurso(double fValor, int sId) {
+    public boolean alterarValorCurso(Curso curso) {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização do valor do curso
             pstm = conn.getConn().prepareStatement("UPDATE Curso SET fValor = ? WHERE sID = ?");
-            pstm.setDouble(1, fValor); // Define o novo valor
-            pstm.setInt(2, sId); // Define o ID do curso a ser atualizado
+            pstm.setDouble(1, curso.getfValor()); // Define o novo valor
+            pstm.setInt(2, curso.getsId()); // Define o ID do curso a ser atualizado
             // Executa a atualização e verifica se houve sucesso
             if (pstm.executeUpdate() <= 0) {
                 return false; // Retorna false se a atualização falhar
@@ -106,13 +105,13 @@ public class CursoDAO {
     }
 
     // Método para alterar a descrição de um curso
-    public boolean alterarDescricaoCurso(String cDescricao, int sId) {
+    public boolean alterarDescricaoCurso(Curso curso) {
         conn.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualização da descrição do curso
             pstm = conn.getConn().prepareStatement("UPDATE Curso SET cDescricao = ? WHERE sID = ?");
-            pstm.setString(1, cDescricao); // Define a nova descrição
-            pstm.setInt(2, sId); // Define o ID do curso a ser atualizado
+            pstm.setString(1, curso.getcDescricao()); // Define a nova descrição
+            pstm.setInt(2, curso.getsId()); // Define o ID do curso a ser atualizado
             // Executa a atualização e verifica se houve sucesso
             if (pstm.executeUpdate() <= 0) {
                 return false; // Retorna false se a atualização falhar

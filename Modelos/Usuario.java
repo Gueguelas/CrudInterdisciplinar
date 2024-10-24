@@ -90,6 +90,10 @@ public class Usuario {
         this.cEmail = cEmail;
     }
 
+    public int getsId() {
+        return sId;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +

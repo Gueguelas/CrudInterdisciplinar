@@ -63,6 +63,10 @@ public class Produto {
         this.cEstado = cEstado;
     }
 
+    public int getsId() {
+        return sId;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +

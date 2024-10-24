@@ -3,7 +3,7 @@ package Modelos;
 public class Curso {
     // Atributos do curso
     private int sId;                // ID do curso
-    private String idCategoriaCurso; // ID da categoria do curso
+    private int idCategoriaCurso; // ID da categoria do curso
     private String cNome;            // Nome do curso
     private double fValor;           // Valor do curso
     private boolean bis_inactive;    // Indica se o curso está inativo
@@ -15,7 +15,7 @@ public class Curso {
     private boolean btransaction_made; // Indica se uma transação foi realizada
 
     // Construtor para inicializar os atributos
-    public Curso(String idCategoriaCurso, String cNome, double fValor,
+    public Curso(int idCategoriaCurso, String cNome, double fValor,
                  boolean bis_inactive, boolean bis_updated, String cDescricao,
                  boolean bStatus, int iNumeroInscricao, String cDuracao,
                  boolean btransaction_made) {
@@ -41,80 +41,84 @@ public class Curso {
         return sId;
     }
 
-    public String getIdCategoriaCurso() {
+    public int getIdCategoriaCurso() {
         return idCategoriaCurso; // Retorna ID da categoria
     }
 
-    public void setIdCategoriaCurso(String cCategoria) {
+    public void setIdCategoriaCurso(int cCategoria) {
         this.idCategoriaCurso = cCategoria; // Atualiza ID da categoria
     }
 
+    public void setsId(int sId) {
+        this.sId = sId;
+    }
+
     public String getcNome() {
-        return cNome; // Retorna nome do curso
+        return cNome;
     }
 
     public void setcNome(String cNome) {
-        this.cNome = cNome; // Atualiza nome do curso
+        this.cNome = cNome;
     }
 
     public double getfValor() {
-        return fValor; // Retorna valor do curso
+        return fValor;
     }
 
     public void setfValor(double fValor) {
-        this.fValor = fValor; // Atualiza valor do curso
+        this.fValor = fValor;
     }
 
     public boolean isBis_inactive() {
-        return bis_inactive; // Retorna estado inativo
+        return bis_inactive;
     }
 
     public void setBis_inactive(boolean bis_inactive) {
-        this.bis_inactive = bis_inactive; // Atualiza estado inativo
+        this.bis_inactive = bis_inactive;
     }
 
     public boolean isBis_updated() {
-        return bis_updated; // Retorna estado atualizado
+        return bis_updated;
     }
 
     public void setBis_updated(boolean bis_updated) {
-        this.bis_updated = bis_updated; // Atualiza estado atualizado
+        this.bis_updated = bis_updated;
     }
 
     public String getcDescricao() {
-        return cDescricao; // Retorna descrição do curso
+        return cDescricao;
     }
 
     public void setcDescricao(String cDescricao) {
-        this.cDescricao = cDescricao; // Atualiza descrição do curso
+        this.cDescricao = cDescricao;
     }
 
-    public boolean isbStatus() {
-        return bStatus; // Retorna status do curso
+    public boolean getbStatus() {
+        return bStatus;
     }
 
     public void setbStatus(boolean bStatus) {
-        this.bStatus = bStatus; // Atualiza status do curso
+        this.bStatus = bStatus;
     }
 
     public int getiNumeroInscricao() {
-        return iNumeroInscricao; // Retorna número de inscrições
+        return iNumeroInscricao;
     }
 
     public void setiNumeroInscricao(int iNumeroInscricao) {
-        this.iNumeroInscricao = iNumeroInscricao; // Atualiza número de inscrições
+        this.iNumeroInscricao = iNumeroInscricao;
     }
 
     public String getcDuracao() {
-        return cDuracao; // Retorna duração do curso
+        return cDuracao;
     }
 
     public void setcDuracao(String cDuracao) {
-        this.cDuracao = cDuracao; // Atualiza duração do curso
+        this.cDuracao = cDuracao;
     }
 
     public boolean isBtransaction_made() {
-        return btransaction_made; // Retorna estado da transação
+        return btransaction_made;
     }
 
     public void setBtransaction_made(boolean btransaction_made) {
