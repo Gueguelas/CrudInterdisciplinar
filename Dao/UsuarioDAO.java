@@ -12,7 +12,7 @@ public class UsuarioDAO {
         PreparedStatement pstm;
         try{
             conexao.conectar();
-            pstm = conexao.getConn().prepareStatement("DELETE FROM USUSARIO WHERE sId = ?");
+            pstm = conexao.getConn().prepareStatement("UPDATE USUARIO SET bisUpdated = false WHERE sId = ?");
             pstm.setInt(1, user.getsId());
             return true;
         }catch(SQLException sqle){

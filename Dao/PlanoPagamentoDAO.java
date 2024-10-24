@@ -80,7 +80,7 @@ public class PlanoPagamentoDAO {
         conexao.conectar(); // Abre a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para remoção
-            this.pstmt = conexao.getConn().prepareStatement("DELETE FROM PLANO_PAGAMENTO WHERE sId = ?");
+            this.pstmt = conexao.getConn().prepareStatement("UPDATE PLANOPAGAMENTO SET bisUpdated = false WHERE sId = ?");
             // Define o parâmetro
             pstmt.setInt(1, planoP.getsId()); // Define o ID do plano a ser removido
             // Executa a remoção e retorna o número de linhas afetadas

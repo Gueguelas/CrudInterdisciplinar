@@ -2,6 +2,8 @@ package Dao;
 
 import java.sql.PreparedStatement; // Importa a classe para executar instruções SQL preparadas
 import java.sql.SQLException;// Importa a classe para tratar exceções relacionadas ao SQL
+
+import Modelos.CategoriaProduto;
 import Modelos.Curso;
 import Conexao.Conexao;
 
@@ -123,6 +125,22 @@ public class CursoDAO {
             return false; // Retorna false em caso de erro
         } finally {
             conn.desconectar(); // Fecha a conexão com o banco de dados
+        }
+    }
+
+    // Método para remover uma curso pelo SID
+    public int removerCurso(Curso curso) {
+        conn.conectar(); // Abre a conexão com o banco
+        try {
+            // Prepara a instrução SQL para remoção
+            pstm = conn.getConn().prepareStatement("UPDATE CURSO SET bisUpdated = false WHERE sId = ?");
+            pstm.setInt(1, curso.getsId()); // Define o valor do parâmetro SID
+            return pstm.executeUpdate(); // Executa a remoção e retorna o número de linhas afetadas
+        } catch (SQLException sqle) {
+            sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
+            return -1; // Retorna -1 em caso de erro
+        } finally {
+            conn.desconectar(); // Fecha a conexão
         }
     }
 }

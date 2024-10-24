@@ -13,7 +13,7 @@ public class ProdutoDAO {
     public boolean removerProduto(Produto prod){
         try{
             conexao.conectar();
-            pstm = conexao.getConn().prepareStatement("DELETE FROM PRODUTO WHERE sID = ?");
+            pstm = conexao.getConn().prepareStatement("UPDATE PRODUTO SET bisUpdated = false WHERE sId = ?");
             pstm.setInt(1, prod.getsId());
             return true;
         }catch(SQLException sqle){

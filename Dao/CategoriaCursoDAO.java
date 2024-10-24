@@ -31,7 +31,7 @@ public class CategoriaCursoDAO {
     public int removerCategoriaCurso(CategoriaCurso catC) {
         conexao.conectar();
         try {
-            this.pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIACURSO WHERE sId = ?");
+            this.pstmt = conexao.getConn().prepareStatement("UPDATE CATEGORIACURSO SET bisUpdated = false WHERE sId = ?");
             pstmt.setInt(1, catC.getsId());
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
@@ -69,6 +69,7 @@ public class CategoriaCursoDAO {
             return null;
         } // connection is not closed here as ResultSet is being returned
     }
+
 
     // Buscar por ID
     public ResultSet buscarPorId(CategoriaCurso catC) {

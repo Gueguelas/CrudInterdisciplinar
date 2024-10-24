@@ -35,7 +35,7 @@ public class CategoriaProdutoDAO {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para remoção
-            pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIAPRODUTO WHERE SID = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE CATEGORIAPRODUTO SET bisUpdated = false WHERE sId = ?");
             pstmt.setInt(1, catP.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a remoção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
