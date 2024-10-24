@@ -71,6 +71,10 @@ public class CategoriaProduto {
         this.btransaction_made = btransaction_made; // Atualiza estado da transação
     }
 
+    public int getsId() {
+        return sId;
+    }
+
     // Sobrescrita do método toString para exibir informações da categoria
     @Override
     public String toString() {

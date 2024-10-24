@@ -54,6 +54,10 @@ public class CategoriaCurso {
         this.cNome = cNome;
     }
 
+    public int getsId() {
+        return sId;
+    }
+
     @Override
     public String toString() {
         return "CategoriaCurso{" +

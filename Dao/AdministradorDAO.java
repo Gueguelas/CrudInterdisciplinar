@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexao.Conexao;
+import Modelos.Administrador;
 
 import java.util.InputMismatchException;
 import java.util.regex.Pattern;
@@ -20,15 +21,15 @@ public class AdministradorDAO {
     public AdministradorDAO() {}
 
     // Método para inserir um novo administrador
-    public int inserirAdministrador(String cnome, String cemail, String csenha) {
+    public int inserirAdministrador(Administrador adm) {
 
         this.conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
             this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO ADMINISTRADOR (CNOME, CEMAIL, CSENHA) VALUES(?,?,?)");
-            this.pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
-            this.pstmt.setString(2, cemail); // Define o valor do parâmetro CEMAIL
-            this.pstmt.setString(3, csenha); // Define o valor do parâmetro CSENHA
+            this.pstmt.setString(1, adm.getcNome()); // Define o valor do parâmetro CNOME
+            this.pstmt.setString(2, adm.getcEmail()); // Define o valor do parâmetro CEMAIL
+            this.pstmt.setString(3, adm.getcSenha()); // Define o valor do parâmetro CSENHA
             return pstmt.executeUpdate(); // Executa a inserção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -39,13 +40,13 @@ public class AdministradorDAO {
     }
 
     // Método para remover um administrador pelo SID
-    public int removerAdministrador(int sid) {
+    public int removerAdministrador(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
 
             // Prepara a instrução SQL para remoção
             this.pstmt = conexao.getConn().prepareStatement("DELETE FROM ADMINISTRADOR WHERE SID = ?");
-            pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            pstmt.setInt(1, adm.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a remoção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -94,13 +95,13 @@ public class AdministradorDAO {
     }
 
     // Método para alterar o nome de um administrador
-    public int alterarNomeAdministrador(String cnome, int sid) {
+    public int alterarNomeAdministrador(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
             this.pstmt = this.conexao.getConn().prepareStatement("UPDATE ADMINISTRADOR SET CNOME = ? WHERE SID = ?");
-            pstmt.setString(1, cnome); // Define o novo nome
-            pstmt.setInt(2, sid); // Define o valor do parâmetro SID
+            pstmt.setString(1, adm.getcNome()); // Define o novo nome
+            pstmt.setInt(2, adm.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a atualização e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -111,13 +112,13 @@ public class AdministradorDAO {
     }
 
     // Método para alterar o email de um administrador
-    public int alterarEmailAdministrador(String cemail, int sid) {
+    public int alterarEmailAdministrador(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
             this.pstmt = this.conexao.getConn().prepareStatement("UPDATE ADMINISTRADOR SET CEMAIL = ? WHERE SID = ?");
-            pstmt.setString(1, cemail); // Define o novo email
-            pstmt.setInt(2, sid); // Define o valor do parâmetro SID
+            pstmt.setString(1, adm.getcEmail()); // Define o novo email
+            pstmt.setInt(2, adm.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a atualização e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -128,13 +129,13 @@ public class AdministradorDAO {
     }
 
     // Método para alterar a senha de um administrador
-    public int alterarSenhaAdministrador(String csenha, int sid) {
+    public int alterarSenhaAdministrador(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
             this.pstmt = this.conexao.getConn().prepareStatement("UPDATE ADMINISTRADOR SET CSENHA = ? WHERE SID = ?");
-            pstmt.setString(1, csenha); // Define a nova senha
-            pstmt.setInt(2, sid); // Define o valor do parâmetro SID
+            pstmt.setString(1, adm.getcSenha()); // Define a nova senha
+            pstmt.setInt(2, adm.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a atualização e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -161,12 +162,12 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo SID
-    public ResultSet buscarAdministradorPorId(int sid) {
+    public ResultSet buscarAdministradorPorId(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por ID
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM ADMINISTRADOR WHERE SID = ?");
-            pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            pstmt.setInt(1, adm.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -177,12 +178,12 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo nome
-    public ResultSet buscarAdministradorPorNome(String cnome) {
+    public ResultSet buscarAdministradorPorNome(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por nome
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM ADMINISTRADOR WHERE CNOME = ?");
-            pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
+            pstmt.setString(1, adm.getcNome()); // Define o valor do parâmetro CNOME
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -193,12 +194,12 @@ public class AdministradorDAO {
     }
 
     // Método para buscar um administrador pelo email
-    public ResultSet buscarAdministradorPorEmail(String cemail) {
+    public ResultSet buscarAdministradorPorEmail(Administrador adm) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por email
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM ADMINISTRADOR WHERE CEMAIL = ?");
-            pstmt.setString(1, cemail); // Define o valor do parâmetro CEMAIL
+            pstmt.setString(1, adm.getcEmail()); // Define o valor do parâmetro CEMAIL
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção

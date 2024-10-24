@@ -37,6 +37,10 @@ public class Curso {
 
     // Getters e Setters
 
+    public int getsId() {
+        return sId;
+    }
+
     public String getIdCategoriaCurso() {
         return idCategoriaCurso; // Retorna ID da categoria
     }

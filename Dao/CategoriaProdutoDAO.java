@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexao.Conexao;
+import Modelos.CategoriaProduto;
 
 // Classe responsável pela manipulação de categorias de produtos
 public class CategoriaProdutoDAO {
@@ -14,12 +15,12 @@ public class CategoriaProdutoDAO {
     public CategoriaProdutoDAO() {}
 
     // Método para inserir uma nova categoria de produto
-    public int inserirCategoriaProduto(String cnome) {
+    public int inserirCategoriaProduto(CategoriaProduto catP) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para inserção
             pstmt = conexao.getConn().prepareStatement("INSERT INTO CATEGORIAPRODUTO (CNOME) VALUES(?)");
-            pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
+            pstmt.setString(1, catP.getcNome()); // Define o valor do parâmetro CNOME
             return pstmt.executeUpdate(); // Executa a inserção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -30,12 +31,12 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para remover uma categoria pelo SID
-    public int removerCategoriaProduto(int sid) {
+    public int removerCategoriaProduto(CategoriaProduto catP) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para remoção
             pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIAPRODUTO WHERE SID = ?");
-            pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            pstmt.setInt(1, catP.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a remoção e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -46,13 +47,13 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para alterar o nome de uma categoria
-    public int alterarNome(String cnome, int sid) {
+    public int alterarNome(CategoriaProduto catP) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para atualização
             pstmt = conexao.getConn().prepareStatement("UPDATE CATEGORIAPRODUTO SET CNOME = ? WHERE SID = ?");
-            pstmt.setString(1, cnome); // Define o valor do novo nome
-            pstmt.setInt(2, sid); // Define o valor do parâmetro SID
+            pstmt.setString(1, catP.getcNome()); // Define o valor do novo nome
+            pstmt.setInt(2, catP.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeUpdate(); // Executa a atualização e retorna o número de linhas afetadas
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -78,12 +79,12 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para buscar uma categoria pelo SID
-    public ResultSet buscarCategoriaProdutoPorId(int sid) {
+    public ResultSet buscarCategoriaProdutoPorId(CategoriaProduto catP) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por ID
             pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIAPRODUTO WHERE SID = ?");
-            pstmt.setInt(1, sid); // Define o valor do parâmetro SID
+            pstmt.setInt(1, catP.getsId()); // Define o valor do parâmetro SID
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
@@ -94,12 +95,12 @@ public class CategoriaProdutoDAO {
     }
 
     // Método para buscar uma categoria pelo nome
-    public ResultSet buscarCategoriaProdutoPorNome(String cnome) {
+    public ResultSet buscarCategoriaProdutoPorNome(CategoriaProduto catP) {
         conexao.conectar(); // Abre a conexão com o banco
         try {
             // Prepara a instrução SQL para busca por nome
             pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIAPRODUTO WHERE CNOME = ?");
-            pstmt.setString(1, cnome); // Define o valor do parâmetro CNOME
+            pstmt.setString(1, catP.getcNome()); // Define o valor do parâmetro CNOME
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção

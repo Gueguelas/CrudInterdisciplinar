@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexao.Conexao;
+import Modelos.CategoriaCurso;
 
 public class CategoriaCursoDAO {
     private PreparedStatement pstmt;
@@ -12,11 +13,11 @@ public class CategoriaCursoDAO {
 
     public CategoriaCursoDAO() {}
 
-    public int inserirCategoria(int sid, String cnome) {
+    public int inserirCategoria(CategoriaCurso catC) {
         conexao.conectar();
         try {
             this.pstmt = this.conexao.getConn().prepareStatement("INSERT INTO CATEGORIACURSO(CNOME) VALUES (?)");
-            this.pstmt.setString(1, cnome);
+            this.pstmt.setString(1, catC.getcNome());
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -27,11 +28,11 @@ public class CategoriaCursoDAO {
     }
 
     // Remover
-    public int removerCategoriaCurso(int sid) {
+    public int removerCategoriaCurso(CategoriaCurso catC) {
         conexao.conectar();
         try {
             this.pstmt = conexao.getConn().prepareStatement("DELETE FROM CATEGORIACURSO WHERE sId = ?");
-            pstmt.setInt(1, sid);
+            pstmt.setInt(1, catC.getsId());
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -42,12 +43,12 @@ public class CategoriaCursoDAO {
     }
 
     // Alterar Nome
-    public int alterarNome(String cnome, int sid) {
+    public int alterarNome(CategoriaCurso catC) {
         conexao.conectar();
         try {
             this.pstmt = this.conexao.getConn().prepareStatement("UPDATE CATEGORIACURSO SET CNOME = ? WHERE sId = ?");
-            pstmt.setString(1, cnome);
-            pstmt.setInt(2, sid);
+            pstmt.setString(1, catC.getcNome());
+            pstmt.setInt(2, catC.getsId());
             return pstmt.executeUpdate();
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -70,11 +71,11 @@ public class CategoriaCursoDAO {
     }
 
     // Buscar por ID
-    public ResultSet buscarPorId(int sid) {
+    public ResultSet buscarPorId(CategoriaCurso catC) {
         conexao.conectar();
         try {
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIACURSO WHERE sId = ?");
-            pstmt.setInt(1, sid);
+            pstmt.setInt(1, catC.getsId());
             return pstmt.executeQuery();
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -83,11 +84,11 @@ public class CategoriaCursoDAO {
     }
 
     // Buscar por Nome
-    public ResultSet buscarPorNome(String cnome) {
+    public ResultSet buscarPorNome(CategoriaCurso catC) {
         conexao.conectar();
         try {
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM CATEGORIACURSO WHERE CNOME = ?");
-            pstmt.setString(1, cnome);
+            pstmt.setString(1, catC.getcNome());
             return pstmt.executeQuery();
         } catch (SQLException sqle) {
             sqle.printStackTrace();

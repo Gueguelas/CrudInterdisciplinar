@@ -31,6 +31,14 @@ public class Administrador {
         }
     }
 
+    public String getcSenha(){
+        return this.cSenha;
+    }
+
+    public int getsId() {
+        return sId;
+    }
+
     // Getter para o nome
     public String getcNome() {
         return cNome; // Retorna o nome do administrador
