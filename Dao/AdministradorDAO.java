@@ -199,7 +199,7 @@ public class AdministradorDAO {
         try {
             // Prepara a instrução SQL para busca por email
             this.pstmt = conexao.getConn().prepareStatement("SELECT * FROM ADMINISTRADOR WHERE CEMAIL = ?");
-            pstmt.setString(1, adm.getcEmail()s); // Define o valor do parâmetro CEMAIL
+            pstmt.setString(1, adm.getcEmail()); // Define o valor do parâmetro CEMAIL
             return pstmt.executeQuery(); // Executa a busca e retorna o ResultSet com os resultados
         } catch (SQLException sqle) {
             sqle.printStackTrace(); // Imprime a pilha de erros em caso de exceção
