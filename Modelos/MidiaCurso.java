@@ -2,18 +2,18 @@ package Modelos;
 
 public class MidiaCurso {
     private int sId;
-    private String cURLVideo;
     private String cURLFoto;
     private boolean btransaction_made;
     private boolean bisInactive;
     private boolean bisUpdates;
 
-    public String getcURLVideo() {
-        return cURLVideo;
+    public MidiaCurso(int sId, String cURLFoto){ // Construtor para cadastrar e para alterar
+        this.sId = sId;
+        this.cURLFoto = cURLFoto;
     }
 
-    public void setcURLVideo(String cURLVideo) {
-        this.cURLVideo = cURLVideo;
+    public MidiaCurso(int sId){ // Construtor para remoção
+        this.sId = sId;
     }
 
     public String getcURLFoto() {
@@ -52,8 +52,7 @@ public class MidiaCurso {
         return sId;
     }
 
-    public MidiaCurso(String cURLVideo, String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
-        this.cURLVideo = cURLVideo;
+    public MidiaCurso(String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
         this.cURLFoto = cURLFoto;
         this.btransaction_made = btransaction_made;
         this.bisInactive = bisInactive;
@@ -63,7 +62,6 @@ public class MidiaCurso {
     @Override
     public String toString() {
         return "MidiaCurso{" +
-                "cURLVideo='" + this.cURLVideo + '\'' +
                 ", cURLFoto='" + this.cURLFoto + '\'' +
                 ", btransaction_made=" + this.btransaction_made +
                 ", bisInactive=" + this.bisInactive +

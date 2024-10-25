@@ -2,7 +2,6 @@ package Modelos;
 
 public class Midia {
     private int sId;
-    private String cURLVideo;
     private String cURLFoto;
     private boolean bis_inactive;     // Indica se a categoria está inativa
     private boolean bis_updated;       // Indica se a categoria foi atualizada
@@ -10,15 +9,7 @@ public class Midia {
 
     public Midia(int sId) { // Construtor para remoção
         this.sId = sId;
-    }
-
-    public String getcURLVideo() {
-        return cURLVideo;
-    }
-
-    public void setcURLVideo(String cURLVideo) {
-        this.cURLVideo = cURLVideo;
-    }
+    } // Construtor para remoção
 
     public String getcURLFoto() {
         return cURLFoto;
@@ -28,8 +19,7 @@ public class Midia {
         this.cURLFoto = cURLFoto;
     }
 
-    public Midia(String cURLVideo, String cURLFoto) {
-        this.cURLVideo = cURLVideo;
+    public Midia(String cURLFoto) {
         this.cURLFoto = cURLFoto;
     }
 }
