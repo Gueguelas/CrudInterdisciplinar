@@ -109,4 +109,33 @@ public class Administrador {
         }
     }
 
+    public String criptografarSenha(String senha) {
+        StringBuilder senhaCriptografada = new StringBuilder();
+        String alfabetoMinusculo = "abcdefghijklmnopqrstuvwxyz";
+        String alfabetoMaiusculo = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String chaveSt = System.getenv("CHAVE_CRIPTOGRAFIA");
+        int chave = Integer.getInteger(chaveSt);
+
+        for (int i = 0; i < senha.length(); i++) {
+            char caractere = senha.charAt(i);
+
+            if (Character.isLowerCase(caractere)) {
+                int novaPosicao = (alfabetoMinusculo.indexOf(caractere) + chave) % alfabetoMinusculo.length();
+                char novaLetra = alfabetoMinusculo.charAt(novaPosicao);
+                senhaCriptografada.append(novaLetra);
+            } else if (Character.isUpperCase(caractere)) {
+                int novaPosicao = (alfabetoMaiusculo.indexOf(caractere) + chave) % alfabetoMaiusculo.length();
+                char novaLetra = alfabetoMaiusculo.charAt(novaPosicao);
+                senhaCriptografada.append(novaLetra);
+            } else if (Character.isDigit(caractere)) {
+                int novoDigito = (Character.getNumericValue(caractere) + chave) % 10; // Limita a 0-9
+                senhaCriptografada.append(novoDigito);
+            } else {
+                senhaCriptografada.append(caractere); // Mantém caracteres não alfabéticos e não numéricos
+            }
+        }
+
+        return senhaCriptografada.toString();
+    }
+
 }
