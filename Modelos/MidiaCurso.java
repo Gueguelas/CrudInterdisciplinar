@@ -1,71 +1,97 @@
-package Modelos;
+package Modelos; // Pacote que contém a classe de modelo
 
 public class MidiaCurso {
-    private int sId;
-    private String cURLFoto;
-    private boolean btransaction_made;
-    private boolean bisInactive;
-    private boolean bisUpdates;
-
-    public MidiaCurso(int sId, String cURLFoto){ // Construtor para cadastrar e para alterar
+    // Construtor da classe
+    public MidiaCurso(int sId, int idCurso, String cURLVideo, String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
         this.sId = sId;
-        this.cURLFoto = cURLFoto;
+        this.idCurso = idCurso;
+        this.cURLVideo = cURLVideo; // Inicializa a URL do vídeo
+        this.cURLFoto = cURLFoto; // Inicializa a URL da foto
+        this.btransaction_made = btransaction_made; // Inicializa o estado da transação
+        this.bisInactive = bisInactive; // Inicializa o estado de inatividade
+        this.bisUpdates = bisUpdates; // Inicializa o estado de atualização
     }
 
-    public MidiaCurso(int sId){ // Construtor para remoção
-        this.sId = sId;
-    }
+    // Atributos da classe
+    private int sId; // ID da mídia do curso
+    private int idCurso;
+    private String cURLVideo; // URL do vídeo da mídia
+    private String cURLFoto; // URL da foto da mídia
+    private boolean btransaction_made; // Indica se uma transação foi realizada
+    private boolean bisInactive; // Indica se a mídia está inativa
+    private boolean bisUpdates; // Indica se a mídia foi atualizada
 
-    public String getcURLFoto() {
-        return cURLFoto;
-    }
-
-    public void setcURLFoto(String cURLFoto) {
-        this.cURLFoto = cURLFoto;
-    }
-
-    public boolean isBtransaction_made() {
-        return btransaction_made;
-    }
-
-    public void setBtransaction_made(boolean btransaction_made) {
-        this.btransaction_made = btransaction_made;
-    }
-
-    public boolean isBisInactive() {
-        return bisInactive;
-    }
-
-    public void setBisInactive(boolean bisInactive) {
-        this.bisInactive = bisInactive;
-    }
-
-    public boolean isBisUpdates() {
-        return bisUpdates;
-    }
-
-    public void setBisUpdates(boolean bisUpdates) {
-        this.bisUpdates = bisUpdates;
-    }
-
+    // Método para obter o ID da mídia
     public int getsId() {
-        return sId;
+        return this.sId; // Retorna o ID da mídia
     }
 
-    public MidiaCurso(String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
-        this.cURLFoto = cURLFoto;
-        this.btransaction_made = btransaction_made;
-        this.bisInactive = bisInactive;
-        this.bisUpdates = bisUpdates;
+    public int getIdCurso() {
+        return idCurso;
     }
+
+    // Método para obter a URL do vídeo
+    public String getcURLVideo() {
+        return this.cURLVideo; // Retorna a URL do vídeo
+    }
+
+    // Método para definir a URL do vídeo
+    public void setcURLVideo(String cURLVideo) {
+        this.cURLVideo = cURLVideo; // Define a URL do vídeo
+    }
+
+    // Método para obter a URL da foto
+    public String getcURLFoto() {
+        return cURLFoto; // Retorna a URL da foto
+    }
+
+    // Método para definir a URL da foto
+    public void setcURLFoto(String cURLFoto) {
+        this.cURLFoto = cURLFoto; // Define a URL da foto
+    }
+
+    // Método para verificar se uma transação foi realizada
+    public boolean isBtransaction_made() {
+        return this.btransaction_made; // Retorna o estado da transação
+    }
+
+    // Método para definir o estado da transação
+    public void setBtransaction_made(boolean btransaction_made) {
+        this.btransaction_made = btransaction_made; // Define o estado da transação
+    }
+
+    // Método para verificar se a mídia está inativa
+    public boolean isBisInactive() {
+        return this.bisInactive; // Retorna o estado de inatividade
+    }
+
+    // Método para definir o estado de inatividade
+    public void setBisInactive(boolean bisInactive) {
+        this.bisInactive = bisInactive; // Define o estado de inatividade
+    }
+
+    // Método para verificar se a mídia foi atualizada
+    public boolean isBisUpdates() {
+        return bisUpdates; // Retorna o estado de atualização
+    }
+
+    // Método para definir o estado de atualização
+    public void setBisUpdates(boolean bisUpdates) {
+        this.bisUpdates = bisUpdates; // Define o estado de atualização
+    }
+
+    // Método para representar a classe como uma string
 
     @Override
     public String toString() {
         return "MidiaCurso{" +
-                ", cURLFoto='" + this.cURLFoto + '\'' +
-                ", btransaction_made=" + this.btransaction_made +
-                ", bisInactive=" + this.bisInactive +
-                ", bisUpdates=" + this.bisUpdates +
+                "sId=" + sId +
+                ", idCurso=" + idCurso +
+                ", cURLVideo='" + cURLVideo + '\'' +
+                ", cURLFoto='" + cURLFoto + '\'' +
+                ", btransaction_made=" + btransaction_made +
+                ", bisInactive=" + bisInactive +
+                ", bisUpdates=" + bisUpdates +
                 '}';
     }
 }

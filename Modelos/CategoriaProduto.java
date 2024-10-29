@@ -2,36 +2,26 @@ package Modelos;
 
 public class CategoriaProduto {
     // Atributos da categoria de produto
-    private int sId;                 // Id da categoria
+    private int sId;
     private String cNome;            // Nome da categoria
     private boolean bis_inactive;     // Indica se a categoria está inativa
     private boolean bis_updated;       // Indica se a categoria foi atualizada
     private boolean btransaction_made; // Indica se uma transação foi realizada
 
     // Construtor para inicializar os atributos
-    public CategoriaProduto(String cNome, boolean bis_inactive, boolean bis_updated, boolean btransaction_made) {
+    public CategoriaProduto(int sId, String cNome, boolean bis_inactive, boolean bis_updated, boolean btransaction_made) {
+        this.sId = sId;
         this.cNome = cNome;
         this.bis_inactive = bis_inactive;
         this.bis_updated = bis_updated;
         this.btransaction_made = btransaction_made;
     }
 
-    public CategoriaProduto(String cNome) {
-        this.cNome = cNome;
-    } // construtor para cadastro
-
-    public CategoriaProduto(int sId) {
-        this.sId = sId;
-    } // construtor para remoção
-
-    public CategoriaProduto(int sId, String cNome) { // construtor para alteração
-        this.sId = sId;
-        if (cNome != null && !cNome.isEmpty()) {
-            this.cNome = cNome;
-        }
+    // Getter para o nome da categoria
+    public int getsId(){
+        return this.sId;
     }
 
-    // Getter para o nome da categoria
     public String getcNome() {
         return cNome; // Retorna o nome da categoria
     }
@@ -69,10 +59,6 @@ public class CategoriaProduto {
     // Setter para transação realizada
     public void setBtransaction_made(boolean btransaction_made) {
         this.btransaction_made = btransaction_made; // Atualiza estado da transação
-    }
-
-    public int getsId() {
-        return sId;
     }
 
     // Sobrescrita do método toString para exibir informações da categoria
