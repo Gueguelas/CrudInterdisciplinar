@@ -1,4 +1,4 @@
-package Modelos;
+package Models;
 
 public class Item {
     private int iQuantidade;

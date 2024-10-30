@@ -1,4 +1,4 @@
-package Modelos; // Pacote que contém a classe de modelo
+package Models; // Pacote que contém a classe de modelo
 
 public class Midia {
     // Atributos da classe

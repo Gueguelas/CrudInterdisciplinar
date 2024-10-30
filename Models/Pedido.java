@@ -1,4 +1,4 @@
-package Modelos; // Pacote que contém a classe de modelo
+package Models; // Pacote que contém a classe de modelo
 
 import java.util.Date; // Importa a classe Date para representar datas
 

@@ -4,7 +4,7 @@ import java.sql.PreparedStatement; // Importa a classe para executar instruçõe
 import java.sql.ResultSet; // Importa a classe para manipular resultados de consultas SQL
 import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL
 import Conexao.Conexao;
-import Modelos.PlanoPagamento;
+import Models.PlanoPagamento;
 
 
 // Classe responsável pela manipulação de planos de pagamento

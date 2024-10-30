@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Conexao.Conexao;
-import Modelos.CategoriaProduto;
+import Models.CategoriaProduto;
 
 // Classe responsável pela manipulação de categorias de produtos
 public class CategoriaProdutoDAO {

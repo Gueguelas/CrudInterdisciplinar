@@ -1,4 +1,4 @@
-package Modelos; // Pacote que contém a classe de modelo
+package Models; // Pacote que contém a classe de modelo
 
 public class PlanoPagamento {
     // Atributos da classe, representando as propriedades do plano de pagamento

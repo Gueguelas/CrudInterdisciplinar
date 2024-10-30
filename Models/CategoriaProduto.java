@@ -1,4 +1,4 @@
-package Modelos;
+package Models;
 
 public class CategoriaProduto {
     // Atributos da categoria de produto

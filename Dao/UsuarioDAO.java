@@ -1,7 +1,7 @@
 package Dao; // Pacote que contém a classe DAO
 
 import Conexao.Conexao; // Importa a classe de conexão ao banco de dados
-import Modelos.Usuario;
+import Models.Usuario;
 
 import java.sql.PreparedStatement; // Importa a classe para preparar instruções SQL
 import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL

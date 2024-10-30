@@ -4,7 +4,7 @@ import java.sql.PreparedStatement; // Importa a classe para preparar instruçõe
 import java.sql.ResultSet; // Importa a classe para trabalhar com resultados de consultas SQL
 import java.sql.SQLException; // Importa a classe para tratar exceções relacionadas ao SQL
 import Conexao.Conexao; // Importa a classe de conexão ao banco de dados
-import Modelos.CategoriaCurso;
+import Models.CategoriaCurso;
 
 public class CategoriaCursoDAO {
     private Conexao conexao; // Instância da classe de conexão
