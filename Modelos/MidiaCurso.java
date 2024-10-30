@@ -2,6 +2,15 @@ package Modelos; // Pacote que contém a classe de modelo
 
 public class MidiaCurso {
     // Construtor da classe
+    // Atributos da classe
+
+    private int sId; // ID da mídia do curso
+    private int idCurso;
+    private String cURLVideo; // URL do vídeo da mídia
+    private String cURLFoto; // URL da foto da mídia
+    private boolean btransaction_made; // Indica se uma transação foi realizada
+    private boolean bisInactive; // Indica se a mídia está inativa
+    private boolean bisUpdates; // Indica se a mídia foi atualizada
     public MidiaCurso(int sId, int idCurso, String cURLVideo, String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
         this.sId = sId;
         this.idCurso = idCurso;
@@ -11,15 +20,14 @@ public class MidiaCurso {
         this.bisInactive = bisInactive; // Inicializa o estado de inatividade
         this.bisUpdates = bisUpdates; // Inicializa o estado de atualização
     }
-
-    // Atributos da classe
-    private int sId; // ID da mídia do curso
-    private int idCurso;
-    private String cURLVideo; // URL do vídeo da mídia
-    private String cURLFoto; // URL da foto da mídia
-    private boolean btransaction_made; // Indica se uma transação foi realizada
-    private boolean bisInactive; // Indica se a mídia está inativa
-    private boolean bisUpdates; // Indica se a mídia foi atualizada
+    public MidiaCurso( int idCurso, String cURLVideo, String cURLFoto, boolean btransaction_made, boolean bisInactive, boolean bisUpdates) {
+        this.idCurso = idCurso;
+        this.cURLVideo = cURLVideo; // Inicializa a URL do vídeo
+        this.cURLFoto = cURLFoto; // Inicializa a URL da foto
+        this.btransaction_made = btransaction_made; // Inicializa o estado da transação
+        this.bisInactive = bisInactive; // Inicializa o estado de inatividade
+        this.bisUpdates = bisUpdates; // Inicializa o estado de atualização
+    }
 
     // Método para obter o ID da mídia
     public int getsId() {
@@ -76,10 +84,10 @@ public class MidiaCurso {
     }
 
     // Método para definir o estado de atualização
+
     public void setBisUpdates(boolean bisUpdates) {
         this.bisUpdates = bisUpdates; // Define o estado de atualização
     }
-
     // Método para representar a classe como uma string
 
     @Override

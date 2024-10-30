@@ -14,7 +14,7 @@ public class MidiaCursoDAO {
         conexao.conectar(); // Estabelece a conexão com o banco de dados
         try {
             // Prepara a instrução SQL para atualizar a mídia, definindo bisUpdated como false
-            this.pstm = conexao.getConn().prepareStatement("UPDATE MIDIACURSO SET bisUpdated = false WHERE sId = ?");
+            this.pstm = conexao.getConn().prepareStatement("UPDATE MIDIACURSO SET bisInactive = true WHERE sId = ?");
             pstm.setInt(1, midiaCurso.getsId()); // Define o ID da mídia a ser atualizada
             return pstm.executeUpdate(); // Executa a atualização e retorna o número de linhas afetadas
         } catch (SQLException sqle) { // Trata exceções relacionadas ao SQL

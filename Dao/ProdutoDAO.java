@@ -15,7 +15,7 @@ public class ProdutoDAO {
         try {
             conexao.conectar(); // Estabelece a conexão com o banco de dados
             // Prepara a instrução SQL para deletar um produto com base no seu ID
-            pstm = conexao.getConn().prepareStatement("UPDATE PRODUTO SET bIsinactive = true WHERE sId = ?");
+            pstm = conexao.getConn().prepareStatement("DELETE FROM produto WHERE sId = ?");
             pstm.setInt(1, produto.getsId()); // Define o ID do produto a ser removido
             return pstm.executeUpdate();
         } catch (SQLException sqle) { // Trata exceções relacionadas ao SQL
